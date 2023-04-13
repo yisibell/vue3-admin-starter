@@ -1,9 +1,7 @@
 import { defineStore } from 'pinia'
-import type { RouteRecord } from 'vue-router'
+import type { IRouteRecord } from '@/router/interfaces/core'
 
-export interface ITagView extends Partial<RouteRecord> {
-  title?: string
-}
+export type ITagView = IRouteRecord
 
 export const useTagsViewStore = defineStore('tags-view', {
   state: () => ({

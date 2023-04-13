@@ -2,7 +2,7 @@
   <main>
     home
 
-    <img v-for="(v, i) in imgs" :key="i" :src="v" alt="" />
+    <el-image v-for="(v, i) in imgs" :key="i" :src="v" alt="" width="200" />
   </main>
 </template>
 

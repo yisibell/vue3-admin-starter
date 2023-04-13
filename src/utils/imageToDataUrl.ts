@@ -7,10 +7,10 @@ const imageToDataURL = function (src: string) {
     img.setAttribute('crossOrigin', 'Anonymous')
     img.src = src
     img.onload = () => {
-      canvas.width = img.width + 10
-      canvas.height = img.height + 10
+      canvas.width = img.width
+      canvas.height = img.height
       context.clearRect(0, 0, img.width, img.height)
-      context.drawImage(img, 10, 10)
+      context.drawImage(img, 0, 0)
 
       resolve(canvas.toDataURL())
     }
