@@ -6,9 +6,9 @@ This template should help get you started developing with Vue 3 in Vite.
 
 - 🚧 Permisstion menu.
 - 🚧 Tags view.
-- :check: Support **Typescript**.
-- :check: Styling via **sass**.
-- :check: Using **pinia** for state management.
-- :check: Using **element-plus** ui component libary.
-- :check: Vue3 + Vite4.
+- :heavy_check_mark: Support **Typescript**.
+- :heavy_check_mark: Styling via **sass**.
+- :heavy_check_mark: Using **pinia** for state management.
+- :heavy_check_mark: Using **element-plus** ui component libary.
+- :heavy_check_mark: Vue3 + Vite4.
 
