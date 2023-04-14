@@ -1,5 +1,5 @@
 
-<p style="text-align: center;">Developing...</p>
+<p align="center">:construction: Developing... :construction:</p>
 
 # vue3-admin-starter
 
