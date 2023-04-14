@@ -1,9 +1,5 @@
 <template>
-  <main>
-    home
-
-    <el-image v-for="(v, i) in imgs" :key="i" :src="v" alt="" width="200" />
-  </main>
+  <div>home</div>
 </template>
 
 <script setup lang="ts">

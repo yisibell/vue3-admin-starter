@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import LayoutDefault from '@/layouts/default/index.vue'
 
 export * from './dynamicRoutes/asyncRoutesMap'
 export * from './staticRoutes'
@@ -9,8 +9,16 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'LayoutDefault',
+      component: LayoutDefault,
+      redirect: '/home',
+      children: [
+        {
+          name: 'home',
+          path: 'home',
+          component: () => import('@/views/HomeView.vue')
+        }
+      ]
     }
   ]
 })
