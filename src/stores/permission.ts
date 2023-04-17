@@ -4,7 +4,7 @@ import { constantRoutes, asyncRoutes } from '@/router'
 
 const hasPermission = (roles: string[], route: IRouteRecord) => {
   if (route.meta && route.meta.roles) {
-    return roles.some((role) => route.meta.roles?.includes(role))
+    return roles.some((role) => route?.meta?.roles?.includes(role))
   } else {
     return true
   }
