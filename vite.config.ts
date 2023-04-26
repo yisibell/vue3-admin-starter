@@ -7,6 +7,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
+import { svg4VuePlugin } from 'vite-plugin-svg4vue'
+
 const pathSrc = fileURLToPath(new URL('./src', import.meta.url))
 
 // https://vitejs.dev/config/
@@ -18,6 +20,9 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    svg4VuePlugin({
+      assetsDirName: 'assets/icons'
+    }),
     AutoImport({
       // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
       // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)

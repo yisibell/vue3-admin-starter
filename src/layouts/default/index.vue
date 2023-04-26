@@ -6,9 +6,7 @@
       </el-aside>
       <el-container>
         <el-header>Header</el-header>
-        <el-main>
-          <RouterView />
-        </el-main>
+        <AppMain />
       </el-container>
     </el-container>
   </div>
@@ -17,11 +15,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import SideMenu from './SideMenu.vue'
+import AppMain from './AppMain.vue'
 
 export default defineComponent({
   name: 'LayoutDefault',
   components: {
-    SideMenu
+    SideMenu,
+    AppMain
   }
 })
 </script>
