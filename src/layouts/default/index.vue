@@ -1,33 +1,62 @@
 <template>
   <div class="layout-default">
-    <el-container>
-      <el-aside width="200px">
+    <div class="layout-default__container">
+      <div class="layout-default__aside" :style="asideCSSVars">
         <SideMenu />
-      </el-aside>
-      <el-container>
-        <el-header>Header</el-header>
+      </div>
+
+      <div class="layout-default__main">
+        <div class="layout-default__header">
+          <NavBar />
+        </div>
         <AppMain />
-      </el-container>
-    </el-container>
+      </div>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import SideMenu from './SideMenu.vue'
 import AppMain from './AppMain.vue'
+import NavBar from './NavBar/index.vue'
+import { computed } from 'vue'
+import { useAppStore } from '@/stores/app'
+
+const AppStore = useAppStore()
+
+const sidebarIsCollapse = computed(() => AppStore.sidebar.opened)
+
+const asideCSSVars = computed(() => ({
+  '--layout-aside-width': sidebarIsCollapse.value ? '64px' : '210px'
+}))
+</script>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'LayoutDefault',
-  components: {
-    SideMenu,
-    AppMain
-  }
+  name: 'LayoutDefault'
 })
 </script>
 
 <style lang="scss" scoped>
 .layout-default {
-  min-height: 100vh;
+  &__container {
+    display: flex;
+    height: 100vh;
+  }
+
+  &__aside {
+    width: var(--layout-aside-width);
+    min-height: 100%;
+    background-color: var(--layout-side-menu-bg-color);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+  }
+
+  &__main {
+    flex: 1;
+  }
 }
 </style>

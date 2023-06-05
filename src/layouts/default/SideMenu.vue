@@ -5,6 +5,8 @@
     :collapse="isCollapse"
     :default-active="activeMenu"
     text-color="#fff"
+    class="side-menu"
+    :collapse-transition="false"
   >
     <SideMenuItem
       v-for="route in routes"
@@ -21,6 +23,7 @@ import { computed } from 'vue'
 import SideMenuItem from './SideMenuItem.vue'
 import { useRoute } from 'vue-router'
 import { usePermissionStore } from '@/stores/permission'
+import { useAppStore } from '@/stores/app'
 
 const permissionStore = usePermissionStore()
 
@@ -38,5 +41,13 @@ const activeMenu = computed(() => {
   return path
 })
 
-const isCollapse = computed(() => false)
+const AppStore = useAppStore()
+
+const isCollapse = computed(() => AppStore.sidebar.opened)
 </script>
+
+<style lang="scss" scoped>
+.el-menu {
+  border-right: none !important;
+}
+</style>

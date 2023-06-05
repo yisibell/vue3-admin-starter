@@ -11,7 +11,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "release": "changelogen --release && git push --follow-tags"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
@@ -19,6 +20,7 @@
     "@logicflow/extension": "^1.2.3",
     "axios": "^1.3.5",
     "element-plus": "^2.3.3",
+    "path-to-regexp": "^6.2.1",
     "pathe": "^1.1.0",
     "pinia": "^2.0.32",
     "vue": "^3.2.47",
@@ -34,6 +36,7 @@
     "@vue/eslint-config-typescript": "^11.0.2",
     "@vue/test-utils": "^2.3.0",
     "@vue/tsconfig": "^0.1.3",
+    "changelogen": "^0.5.3",
     "eslint": "^8.34.0",
     "eslint-plugin-vue": "^9.9.0",
     "jsdom": "^21.1.0",

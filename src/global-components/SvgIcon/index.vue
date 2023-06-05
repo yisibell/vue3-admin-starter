@@ -1,5 +1,5 @@
 <template>
-  <span :class="['nuxt-svg-icon', descriptorClass]" :style="[styleVars]" v-html="icon" />
+  <span :class="['vue-svg-icon', descriptorClass]" :style="[styleVars]" v-html="icon" />
 </template>
 
 <script setup lang="ts">
@@ -41,7 +41,7 @@ const finalFill = computed(() => props.fill || props.color)
 
 const styleVars = computed(() => {
   const fontSizeCssVar =
-    typeof finalFontSize.value === 'number' ? `${finalFontSize.value}px` : props.fontSize
+    typeof finalFontSize.value === 'number' ? `${finalFontSize.value}px` : finalFontSize.value
 
   return {
     '--svg-icon-font-size': fontSizeCssVar,
@@ -68,7 +68,7 @@ watchEffect(async () => {
 
     icon.value = rawIcon as unknown as string
   } catch {
-    console.error(`[nuxt-svg-icons] Icon '${props.name}' doesn't exist in 'assets/icons'`)
+    console.error(`[vue-svg-icons] Icon '${props.name}' doesn't exist in 'assets/icons'`)
   }
 })
 </script>
@@ -81,13 +81,13 @@ export default defineComponent({
 </script>
 
 <style>
-.nuxt-svg-icon {
+.vue-svg-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.nuxt-svg-icon svg {
+.vue-svg-icon svg {
   font-size: var(--svg-icon-font-size) !important;
   fill: var(--svg-icon-fill) !important;
   stroke: var(--svg-icon-stroke) !important;
