@@ -3,10 +3,11 @@
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
         <span
-          v-if="item.redirect === 'noredirect' || index === breadcrumbs.length - 1"
+          v-if="item.meta.redirect === 'noredirect' || index === breadcrumbs.length - 1"
           class="no-redirect"
-          >{{ item.meta && item.meta.title }}</span
         >
+          {{ item.meta && item.meta.title }}
+        </span>
         <a v-else @click.prevent="handleLink(item)">{{ item.meta && item.meta.title }}</a>
       </el-breadcrumb-item>
     </transition-group>
@@ -18,15 +19,13 @@ import { onMounted, ref, watch } from 'vue'
 import { compile } from 'path-to-regexp'
 import { useRoute, useRouter } from 'vue-router'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
-import type { IRouteRecord } from '@/router/interfaces/core'
 
-type RouteRecord = IRouteRecord
 type Route = RouteLocationNormalizedLoaded
 
 const route = useRoute()
 const router = useRouter()
 
-const breadcrumbs = ref<RouteRecord[]>([])
+const breadcrumbs = ref<Route[]>([])
 
 watch(
   () => route,
@@ -45,17 +44,19 @@ onMounted(() => {
 })
 
 const getBreadcrumb = () => {
-  let matched = route.matched.filter((item) => item.meta && item.meta.title) as RouteRecord[]
+  let matched = route.matched.filter((item) => item.meta && item.meta.title) as unknown as Route[]
+
   const first = matched[0]
   if (!isDashboard(first)) {
-    matched = [{ path: '/dashboard', meta: { title: 'dashboard' } } as RouteRecord].concat(matched)
+    matched = [{ path: '/dashboard', meta: { title: 'dashboard' } } as Route].concat(matched)
   }
+
   breadcrumbs.value = matched.filter((item) => {
     return item.meta && item.meta.title && item.meta.breadcrumb !== false
   })
 }
 
-const isDashboard = (route: RouteRecord) => {
+const isDashboard = (route: Route) => {
   const name = route && route.name
   if (!name) {
     return false
@@ -71,8 +72,10 @@ const pathCompile = (path: string) => {
   return toPath(params)
 }
 
-const handleLink = (item: any) => {
-  const { redirect, path } = item
+const handleLink = (item: Route) => {
+  const { meta, path } = item
+  const { redirect } = meta
+
   if (redirect) {
     router.push(redirect).catch((err) => {
       console.warn(err)

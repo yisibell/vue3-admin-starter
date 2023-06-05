@@ -1,11 +1,15 @@
 import { defineStore } from 'pinia'
-import type { IRouteRecord } from '@/router/interfaces/core'
+import type { RouteLocationNormalizedLoaded } from 'vue-router'
 
-export type ITagView = IRouteRecord
+export interface ITagView extends RouteLocationNormalizedLoaded {
+  title: string
+}
 
 export const useTagsViewStore = defineStore('tags-view', {
   state: () => ({
+    // used by tags view list
     visitedViews: [] as ITagView[],
+    // used by <keep-alive />
     cachedViews: [] as (string | undefined | symbol)[]
   }),
   actions: {
