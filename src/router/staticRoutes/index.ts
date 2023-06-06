@@ -21,6 +21,21 @@ export const constantRoutes: IRouteRecord[] = [
     ]
   },
   {
+    path: '/redirect',
+    component: LayoutDefault,
+    meta: {
+      hidden: true
+    },
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect/index.vue')
+      }
+    ]
+  },
+
+  // sideMenu routes
+  {
     path: '/demo',
     component: LayoutDefault,
     meta: {

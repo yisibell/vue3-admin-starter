@@ -8,6 +8,7 @@
 
 <style lang="scss" scoped>
 .app-main {
-  height: calc(100vh - 50px);
+  // 减去 navbar 和 tags-view 的高度
+  height: calc(100vh - calc(34px + 50px));
 }
 </style>

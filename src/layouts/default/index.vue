@@ -8,6 +8,7 @@
       <div class="layout-default__main">
         <div class="layout-default__header">
           <NavBar />
+          <TagsView />
         </div>
         <AppMain />
       </div>
@@ -19,6 +20,7 @@
 import SideMenu from './SideMenu.vue'
 import AppMain from './AppMain.vue'
 import NavBar from './NavBar/index.vue'
+import TagsView from './TagsView/index.vue'
 import { computed } from 'vue'
 import { useAppStore } from '@/stores/app'
 

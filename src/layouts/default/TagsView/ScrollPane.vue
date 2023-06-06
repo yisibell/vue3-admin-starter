@@ -1,28 +1,17 @@
 <template>
-  <el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container">
+  <el-scrollbar ref="scrollContainer" class="scroll-container">
     <slot />
   </el-scrollbar>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import type { ITagView } from '@/stores/tagsView'
 
-<style lang="scss">
-.scroll-container {
-  .el-scrollbar__bar {
-    bottom: 0px;
-  }
-
-  .el-scrollbar__wrap {
-    height: 49px;
-  }
+const moveToTarget = (tag: ITagView) => {
+  console.log(tag)
 }
-</style>
 
-<style lang="scss" scoped>
-.scroll-container {
-  white-space: nowrap;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-</style>
+defineExpose({
+  moveToTarget
+})
+</script>
