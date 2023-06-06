@@ -1,8 +1,9 @@
 <template>
   <div ref="tagsViewContainerEl" class="tags-view-container">
-    <ScrollPane class="tags-view-wrapper" @scroll="handleScroll">
-      <router-link
+    <ScrollPane :tag-list="tagList" class="tags-view-wrapper" @scroll="handleScroll">
+      <RouterLink
         v-for="tag in visitedViews"
+        :ref="getTagVNodes"
         :key="tag.fullPath"
         :class="tag.path === route.path ? 'active' : ''"
         :to="{ path: `${tag.path}`, query: tag.query }"
@@ -19,7 +20,7 @@
         >
           <Close />
         </el-icon>
-      </router-link>
+      </RouterLink>
     </ScrollPane>
 
     <ul v-show="visible" :style="{ left: left + 'px', top: top + 'px' }" class="contextmenu">
@@ -41,7 +42,6 @@ import type { IRouteRecord } from '@/router/interfaces/core'
 import type { ITagView } from '@/stores/tagsView'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import ScrollPane from './ScrollPane.vue'
-import { Close } from '@element-plus/icons-vue'
 
 type ScrollPaneComponent = InstanceType<typeof ScrollPane>
 
@@ -77,6 +77,16 @@ watch(visible, (value: boolean) => {
     document.body.removeEventListener('click', closeMenu)
   }
 })
+
+const tagList = ref<HTMLAnchorElement[]>([])
+const getTagVNodes = (VNode: any) => {
+  const tagEl = (VNode && VNode.$el) as HTMLAnchorElement
+  if (tagEl) {
+    if (tagList.value.some((v) => v.href === tagEl.href)) return
+
+    tagList.value.push(tagEl)
+  }
+}
 
 // 过滤固定标签
 const filterAffixTags = (routes: IRouteRecord[], basePath = '/') => {
@@ -219,10 +229,9 @@ const openMenu = (tag: ITagView, e: MouseEvent) => {
   if (!tagsViewContainerEl.value) return
 
   const menuMinWidth = 105
-  const offsetLeft = tagsViewContainerEl.value.getBoundingClientRect().left // container margin left
   const offsetWidth = tagsViewContainerEl.value.offsetWidth // container width
   const maxLeft = offsetWidth - menuMinWidth // left boundary
-  const tagLeft = e.clientX - offsetLeft + 15 // 15: margin right
+  const tagLeft = e.clientX - 15 // 15: margin right
 
   if (tagLeft > maxLeft) {
     left.value = maxLeft

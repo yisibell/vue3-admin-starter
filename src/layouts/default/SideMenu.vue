@@ -1,12 +1,12 @@
 <template>
   <el-menu
-    active-text-color="#ffd04b"
-    background-color="#545c64"
     :collapse="isCollapse"
     :default-active="activeMenu"
+    :collapse-transition="false"
+    active-text-color="#ffd04b"
+    background-color="#545c64"
     text-color="#fff"
     class="side-menu"
-    :collapse-transition="false"
   >
     <SideMenuItem
       v-for="route in routes"
@@ -43,7 +43,7 @@ const activeMenu = computed(() => {
 
 const AppStore = useAppStore()
 
-const isCollapse = computed(() => AppStore.sidebar.opened)
+const isCollapse = computed(() => !AppStore.sidebar.opened)
 </script>
 
 <style lang="scss" scoped>

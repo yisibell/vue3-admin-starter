@@ -14,6 +14,9 @@ onMounted(() => {
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'RedirectView'
+  name: 'RedirectView',
+  render() {
+    return ''
+  }
 })
 </script>

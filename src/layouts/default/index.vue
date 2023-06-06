@@ -26,7 +26,7 @@ import { useAppStore } from '@/stores/app'
 
 const AppStore = useAppStore()
 
-const sidebarIsCollapse = computed(() => AppStore.sidebar.opened)
+const sidebarIsCollapse = computed(() => !AppStore.sidebar.opened)
 
 const asideCSSVars = computed(() => ({
   '--layout-aside-width': sidebarIsCollapse.value ? '64px' : '210px'
@@ -59,6 +59,7 @@ export default defineComponent({
 
   &__main {
     flex: 1;
+    overflow: hidden;
   }
 }
 </style>
