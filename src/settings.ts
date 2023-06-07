@@ -21,5 +21,5 @@ export default {
    */
   sidebarLogo: true,
 
-  dashboardTitle: '首页'
+  dashboardTitle: 'home_page'
 }

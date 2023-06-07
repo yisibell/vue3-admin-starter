@@ -23,6 +23,8 @@ export type LocaleType = keyof typeof localesConfigs
 
 export const i18n = createI18n({
   legacy: false,
+  missingWarn: false,
+  fallbackWarn: false,
   locale: 'en',
   fallbackLocale: 'en',
   messages: localesConfigs

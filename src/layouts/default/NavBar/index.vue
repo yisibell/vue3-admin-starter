@@ -8,7 +8,7 @@
     />
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
-      <LangSelect />
+      <LangSelect class="right-menu-item hover-effect" />
 
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">

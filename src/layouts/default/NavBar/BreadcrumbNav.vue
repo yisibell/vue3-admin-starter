@@ -6,7 +6,7 @@
           v-if="item.meta.redirect === 'noredirect' || index === breadcrumbs.length - 1"
           class="no-redirect"
         >
-          {{ item.meta && item.meta.title }}
+          {{ item.meta && $t(item.meta.title || '') }}
         </span>
         <a v-else @click.prevent="handleLink(item)">{{ item.meta && item.meta.title }}</a>
       </el-breadcrumb-item>
@@ -21,12 +21,23 @@ import { useRoute, useRouter } from 'vue-router'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import defaultSettings from '@/settings'
 
+import { useAppStore } from '@/stores/app'
+
 type Route = RouteLocationNormalizedLoaded
+
+const AppStore = useAppStore()
 
 const route = useRoute()
 const router = useRouter()
 
 const breadcrumbs = ref<Route[]>([])
+
+watch(
+  () => AppStore.language,
+  () => {
+    getBreadcrumb()
+  }
+)
 
 watch(
   () => route,

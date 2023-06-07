@@ -1,0 +1,8 @@
+/* 自定义 element-plus 主题色 */
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #409EFF,
+    ),
+  ),
+);

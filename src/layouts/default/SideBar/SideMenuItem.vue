@@ -16,8 +16,8 @@
             class="menu-item-icon"
           />
           <template #title>
-            <span v-if="theOnlyOneChild.meta.title" :title="theOnlyOneChild.meta.title">
-              {{ theOnlyOneChild.meta.title }}
+            <span v-if="theOnlyOneChild.meta.title" :title="$t(theOnlyOneChild.meta.title)">
+              {{ $t(theOnlyOneChild.meta.title) }}
             </span>
           </template>
         </el-menu-item>
@@ -37,7 +37,7 @@
           class="menu-item-icon"
         />
         <span v-if="item.meta && item.meta.title && !isCollapse">
-          {{ item.meta.title }}
+          {{ $t(item.meta.title) }}
         </span>
       </template>
 

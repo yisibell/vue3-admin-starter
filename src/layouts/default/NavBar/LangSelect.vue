@@ -1,6 +1,8 @@
 <template>
   <el-dropdown trigger="click" class="international" @command="handleSetLanguage">
-    <svg-icon name="language" font-size="22px" />
+    <div class="international-icon-wrapper">
+      <SvgIcon name="language" font-size="22px" />
+    </div>
 
     <template #dropdown>
       <el-dropdown-menu>
@@ -32,3 +34,13 @@ const handleSetLanguage = (lang: LocaleType) => {
   })
 }
 </script>
+
+<style lang="scss" scoped>
+.international-icon-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

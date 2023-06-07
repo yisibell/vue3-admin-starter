@@ -11,7 +11,7 @@
         @click.middle="closeSelectedTag(tag)"
         @contextmenu.prevent="openMenu(tag, $event)"
       >
-        {{ tag.title }}
+        {{ $t(tag.title || '') }}
         <el-icon
           v-if="!isAffix(tag)"
           :size="10"

@@ -1,19 +1,20 @@
 <template>
-  <div>home</div>
+  <div class="dashboard-container">
+    <div>{{ $t('home_page') }} {{ i18n.t('home_page') }}</div>
+    <div>
+      <el-button type="primary">button</el-button>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { imageToDataURLBatch } from '@/utils/imageToDataUrl'
+import { onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const imgs = ref<string[]>([])
+const i18n = useI18n()
 
-onMounted(async () => {
-  const res = await imageToDataURLBatch([
-    'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
-    'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg'
-  ])
-  imgs.value = res
+onMounted(() => {
+  console.log(i18n)
 })
 </script>
 
@@ -23,3 +24,9 @@ export default defineComponent({
   name: 'DashboardView'
 })
 </script>
+
+<style lang="scss" scoped>
+.dashboard-container {
+  padding: 16px;
+}
+</style>

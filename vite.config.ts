@@ -6,6 +6,7 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import ElementPlus from 'unplugin-element-plus/vite'
 
 import { svg4VuePlugin } from 'vite-plugin-svg4vue'
 
@@ -19,11 +20,19 @@ export default defineConfig({
       '~': pathSrc
     }
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "~/styles/element/index.scss" as *;`
+      }
+    }
+  },
   plugins: [
     vue(),
     svg4VuePlugin({
       assetsDirName: 'assets/icons'
     }),
+
     AutoImport({
       // Auto import functions from Element Plus, e.g. ElMessage, ElMessageBox... (with style)
       // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
@@ -36,6 +45,10 @@ export default defineConfig({
         // 自动导入 Element Plus 组件
         ElementPlusResolver()
       ]
+    }),
+
+    ElementPlus({
+      useSource: true
     })
   ]
 })
