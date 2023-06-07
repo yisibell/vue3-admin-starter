@@ -1,3 +1,1 @@
-import type { IRouteRecord } from '@/router/interfaces/core'
-
-export const asyncRoutes: IRouteRecord[] = []
+export const asyncRoutesMap = {}

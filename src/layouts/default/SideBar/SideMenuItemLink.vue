@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { isExternal } from './utils'
+import { isExternal } from '../utils'
 defineProps<{
   to: string
 }>()

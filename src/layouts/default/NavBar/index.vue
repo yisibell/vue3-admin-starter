@@ -8,7 +8,7 @@
     />
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
-      <SvgIcon name="lang" :size="22" />
+      <LangSelect />
 
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
@@ -43,7 +43,7 @@ import { computed } from 'vue'
 import { useAppStore } from '@/stores/app'
 import Breadcrumb from './BreadcrumbNav.vue'
 import Hamburger from './HamburgerIcon.vue'
-import { CaretBottom } from '@element-plus/icons-vue'
+import LangSelect from './LangSelect.vue'
 
 const AppStore = useAppStore()
 

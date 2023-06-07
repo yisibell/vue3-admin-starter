@@ -23,7 +23,9 @@
     "path-to-regexp": "^6.2.1",
     "pathe": "^1.1.0",
     "pinia": "^2.0.32",
+    "pinia-plugin-persistedstate": "^3.1.0",
     "vue": "^3.2.47",
+    "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

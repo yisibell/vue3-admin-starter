@@ -59,7 +59,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
-import { isExternal } from './utils'
+import { isExternal } from '../utils'
 import path from 'pathe'
 import SideMenuItemLink from './SideMenuItemLink.vue'
 

@@ -15,7 +15,8 @@ const pathSrc = fileURLToPath(new URL('./src', import.meta.url))
 export default defineConfig({
   resolve: {
     alias: {
-      '@': pathSrc
+      '@': pathSrc,
+      '~': pathSrc
     }
   },
   plugins: [

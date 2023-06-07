@@ -19,6 +19,7 @@ import { onMounted, ref, watch } from 'vue'
 import { compile } from 'path-to-regexp'
 import { useRoute, useRouter } from 'vue-router'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
+import defaultSettings from '@/settings'
 
 type Route = RouteLocationNormalizedLoaded
 
@@ -47,8 +48,11 @@ const getBreadcrumb = () => {
   let matched = route.matched.filter((item) => item.meta && item.meta.title) as unknown as Route[]
 
   const first = matched[0]
+
   if (!isDashboard(first)) {
-    matched = [{ path: '/dashboard', meta: { title: 'dashboard' } } as Route].concat(matched)
+    matched = [
+      { path: '/dashboard', meta: { title: defaultSettings.dashboardTitle } } as Route
+    ].concat(matched)
   }
 
   breadcrumbs.value = matched.filter((item) => {
@@ -62,7 +66,8 @@ const isDashboard = (route: Route) => {
     return false
   }
   return (
-    typeof name === 'string' && name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
+    typeof name === 'string' &&
+    name.trim().toLocaleLowerCase() === 'DashboardView'.toLocaleLowerCase()
   )
 }
 

@@ -2,10 +2,10 @@
   <div class="layout-default">
     <div class="layout-default__container">
       <div class="layout-default__aside" :style="asideCSSVars">
-        <SideMenu />
+        <SideBar />
       </div>
 
-      <div class="layout-default__main">
+      <div class="layout-default__main" :class="{ 'fixed-header': fixedHeader }">
         <div class="layout-default__header">
           <NavBar />
           <TagsView />
@@ -17,20 +17,24 @@
 </template>
 
 <script lang="ts" setup>
-import SideMenu from './SideMenu.vue'
+import SideBar from './SideBar/index.vue'
 import AppMain from './AppMain.vue'
 import NavBar from './NavBar/index.vue'
 import TagsView from './TagsView/index.vue'
 import { computed } from 'vue'
 import { useAppStore } from '@/stores/app'
+import { useSettingsStore } from '@/stores/settings'
 
 const AppStore = useAppStore()
+const SettingsStore = useSettingsStore()
 
 const sidebarIsCollapse = computed(() => !AppStore.sidebar.opened)
 
 const asideCSSVars = computed(() => ({
   '--layout-aside-width': sidebarIsCollapse.value ? '64px' : '210px'
 }))
+
+const fixedHeader = computed(() => SettingsStore.fixedHeader)
 </script>
 
 <script lang="ts">
@@ -51,15 +55,19 @@ export default defineComponent({
   &__aside {
     width: var(--layout-aside-width);
     min-height: 100%;
-    background-color: var(--layout-side-menu-bg-color);
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     transition: width 0.3s ease;
   }
 
   &__main {
     flex: 1;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &.fixed-header {
+      overflow-y: hidden;
+    }
   }
 }
 </style>
