@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
 import { constantRoutes } from './staticRoutes'
 
 const router = createRouter({

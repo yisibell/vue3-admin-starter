@@ -16,7 +16,7 @@ This admin template should help get you started developing with Vue 3 in Vite.
 
 ## Technology stack
 
-- :heavy_check_mark: using **pnpm** for deps management.
+- :heavy_check_mark: Using **pnpm** for dependencies management.
 - :heavy_check_mark: Support **Typescript**.
 - :heavy_check_mark: Styling via **sass**.
 - :heavy_check_mark: Using **pinia** for state management.
