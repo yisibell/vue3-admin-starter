@@ -22,9 +22,9 @@ This admin template should help get you started developing with Vue 3 in Vite.
 - :heavy_check_mark: Using **element-plus** ui component libary.
 - :heavy_check_mark: **Vue3** + **Vite4**.
 - :construction: **axios** for http request.
-- :construction: **vue-i18n** for internationalization.
+- :heavy_check_mark: **vue-i18n** for internationalization.
 
-## Setup
+# Setup
 
 ```bash
 # install deps
