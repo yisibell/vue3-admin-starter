@@ -14,6 +14,7 @@ const pathSrc = fileURLToPath(new URL('./src', import.meta.url))
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/vue3-admin-starter/',
   resolve: {
     alias: {
       '@': pathSrc,
