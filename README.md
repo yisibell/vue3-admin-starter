@@ -9,7 +9,7 @@ This admin template should help get you started developing with Vue 3 in Vite.
 
 ## System fuctions
 
-- :construction: Permisstion control.
+- :construction: Permission control.
 - :heavy_check_mark: Tags view, Support page level caching.
 - :heavy_check_mark: Side menu.
 - :heavy_check_mark: Support internationalization.
