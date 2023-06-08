@@ -11,7 +11,7 @@
         @click.middle="closeSelectedTag(tag)"
         @contextmenu.prevent="openMenu(tag, $event)"
       >
-        {{ $t(tag.title || '') }}
+        {{ $t(tag.meta.title || '') }}
         <el-icon
           v-if="!isAffix(tag)"
           :size="10"
@@ -40,7 +40,6 @@ import { usePermissionStore } from '@/stores/permission'
 import { useTagsViewStore } from '@/stores/tagsView'
 import type { IRouteRecord } from '@/router/interfaces/core'
 import type { ITagView } from '@/stores/tagsView'
-import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import ScrollPane from './ScrollPane.vue'
 
 type ScrollPaneComponent = InstanceType<typeof ScrollPane>
@@ -51,7 +50,7 @@ const TagsViewStore = useTagsViewStore()
 const routes = computed(() => PermissionStore.routes)
 const visitedViews = computed(() => TagsViewStore.visitedViews)
 const affixTags = ref<ITagView[]>([])
-const selectedTag = ref<RouteLocationNormalizedLoaded | {}>({})
+const selectedTag = ref<ITagView>()
 const visible = ref(false)
 const left = ref(0)
 const top = ref(0)
@@ -95,13 +94,16 @@ const filterAffixTags = (routes: IRouteRecord[], basePath = '/') => {
   routes.forEach((route) => {
     if (route.meta && route.meta.affix) {
       const tagPath = path.resolve(basePath, route.path)
+
       tags.push({
         fullPath: tagPath,
         path: tagPath,
         name: route.name,
-        meta: { ...route.meta }
+        meta: { ...route.meta },
+        query: {}
       })
     }
+
     if (route.children) {
       const tempTags = filterAffixTags(route.children, route.path)
       if (tempTags.length >= 1) {
@@ -139,8 +141,8 @@ const isActive = (route: ITagView) => {
 }
 
 // 某标签是否为固定标签
-const isAffix = (tag: ITagView) => {
-  return tag.meta && tag.meta.affix
+const isAffix = (tag?: ITagView) => {
+  return tag && tag.meta && tag.meta.affix
 }
 
 const moveToCurrentTag = () => {
@@ -185,7 +187,8 @@ const toLastView = (visitedViews: ITagView[], view: ITagView) => {
 }
 
 // 刷新
-const refreshSelectedTag = (view: ITagView) => {
+const refreshSelectedTag = (view?: ITagView) => {
+  if (!view) return
   TagsViewStore.delCachedView(view)
 
   const { fullPath } = view
@@ -197,7 +200,8 @@ const refreshSelectedTag = (view: ITagView) => {
 }
 
 // 关闭
-const closeSelectedTag = (view: ITagView) => {
+const closeSelectedTag = (view?: ITagView) => {
+  if (!view) return
   if (isAffix(view)) return
 
   TagsViewStore.delView(view)
@@ -209,13 +213,17 @@ const closeSelectedTag = (view: ITagView) => {
 
 // 关闭其他
 const closeOthersTags = () => {
+  if (!selectedTag.value) return
+
   router.push(selectedTag.value)
   TagsViewStore.delOthersViews(selectedTag.value)
   moveToCurrentTag()
 }
 
 // 关闭所有
-const closeAllTags = (view: ITagView) => {
+const closeAllTags = (view?: ITagView) => {
+  if (!view) return
+
   TagsViewStore.delAllViews()
   if (affixTags.value.some((tag) => tag.path === view.path)) {
     return

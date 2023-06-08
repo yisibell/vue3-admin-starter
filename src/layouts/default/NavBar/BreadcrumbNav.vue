@@ -8,7 +8,7 @@
         >
           {{ item.meta && $t(item.meta.title || '') }}
         </span>
-        <a v-else @click.prevent="handleLink(item)">{{ item.meta && item.meta.title }}</a>
+        <a v-else @click.prevent="handleLink(item)">{{ item.meta && $t(item.meta.title || '') }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -21,23 +21,12 @@ import { useRoute, useRouter } from 'vue-router'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import defaultSettings from '@/settings'
 
-import { useAppStore } from '@/stores/app'
-
 type Route = RouteLocationNormalizedLoaded
-
-const AppStore = useAppStore()
 
 const route = useRoute()
 const router = useRouter()
 
 const breadcrumbs = ref<Route[]>([])
-
-watch(
-  () => AppStore.language,
-  () => {
-    getBreadcrumb()
-  }
-)
 
 watch(
   () => route,

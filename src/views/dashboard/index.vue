@@ -15,6 +15,7 @@ const i18n = useI18n()
 
 onMounted(() => {
   console.log(i18n)
+  console.log('base API:', import.meta.env.VITE_APP_BASE_API)
 })
 </script>
 

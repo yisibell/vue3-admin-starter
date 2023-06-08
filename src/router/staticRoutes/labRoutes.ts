@@ -12,7 +12,7 @@ export const labRoutes: IRouteRecord[] = [
     },
     children: [
       {
-        name: 'flowDemo',
+        name: 'FlowDemo',
         path: 'flowchart',
         component: () => import('@/views/demo/FlowDemo.vue'),
         meta: {
@@ -21,7 +21,7 @@ export const labRoutes: IRouteRecord[] = [
         }
       },
       {
-        name: 'pageOne',
+        name: 'PageOne',
         path: 'page-one',
         component: () => import('@/views/demo/PageOne.vue'),
         meta: {
@@ -30,7 +30,7 @@ export const labRoutes: IRouteRecord[] = [
         }
       },
       {
-        name: 'pageTwo',
+        name: 'PageTwo',
         path: 'page-two',
         component: () => import('@/views/demo/PageTwo.vue'),
         meta: {
@@ -39,7 +39,7 @@ export const labRoutes: IRouteRecord[] = [
         }
       },
       {
-        name: 'pageThree',
+        name: 'PageThree',
         path: 'page-three',
         component: () => import('@/views/demo/PageThree.vue'),
         meta: {
@@ -48,7 +48,7 @@ export const labRoutes: IRouteRecord[] = [
         }
       },
       {
-        name: 'pageFour',
+        name: 'PageFour',
         path: 'page-four',
         component: () => import('@/views/demo/PageFour.vue'),
         meta: {
@@ -57,7 +57,7 @@ export const labRoutes: IRouteRecord[] = [
         }
       },
       {
-        name: 'pageFive',
+        name: 'PageFive',
         path: 'page-five',
         component: () => import('@/views/demo/PageFive.vue'),
         meta: {
@@ -66,7 +66,7 @@ export const labRoutes: IRouteRecord[] = [
         }
       },
       {
-        name: 'pageSix',
+        name: 'PageSix',
         path: 'page-six',
         component: () => import('@/views/demo/PageSix.vue'),
         meta: {
@@ -75,7 +75,7 @@ export const labRoutes: IRouteRecord[] = [
         }
       },
       {
-        name: 'pageSeven',
+        name: 'PageSeven',
         path: 'page-seven',
         component: () => import('@/views/demo/PageSeven.vue'),
         meta: {
@@ -84,7 +84,7 @@ export const labRoutes: IRouteRecord[] = [
         }
       },
       {
-        name: 'pageEight',
+        name: 'PageEight',
         path: 'page-eight',
         component: () => import('@/views/demo/PageEight.vue'),
         meta: {
@@ -93,7 +93,7 @@ export const labRoutes: IRouteRecord[] = [
         }
       },
       {
-        name: 'pageNine',
+        name: 'PageNine',
         path: 'page-nine',
         component: () => import('@/views/demo/PageNine.vue'),
         meta: {
@@ -102,7 +102,7 @@ export const labRoutes: IRouteRecord[] = [
         }
       },
       {
-        name: 'pageTen',
+        name: 'PageTen',
         path: 'page-ten',
         component: () => import('@/views/demo/PageTen.vue'),
         meta: {

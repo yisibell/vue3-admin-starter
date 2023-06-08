@@ -1,24 +1,28 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
+
 import vue from '@vitejs/plugin-vue'
+import { svg4VuePlugin } from 'vite-plugin-svg4vue'
 
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import ElementPlus from 'unplugin-element-plus/vite'
 
-import { svg4VuePlugin } from 'vite-plugin-svg4vue'
+const isDev = () => process.env.NODE_ENV === 'development'
 
-const pathSrc = fileURLToPath(new URL('./src', import.meta.url))
+const srcPath = fileURLToPath(new URL('./src', import.meta.url))
+const rootPath = fileURLToPath(new URL('./', import.meta.url))
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/vue3-admin-starter/',
+  base: isDev() ? '/' : '/vue3-admin-starter/',
   resolve: {
     alias: {
-      '@': pathSrc,
-      '~': pathSrc
+      '@': srcPath,
+      '~': srcPath,
+      '@@': rootPath,
+      '~~': rootPath
     }
   },
   css: {

@@ -28,7 +28,7 @@ jobs:
 
       # build to static
       - name: Build Example
-        run: pnpm install && pnpm build-only
+        run: pnpm install && pnpm build:ft
         # working-directory: example
 
       # deploy to `docs` branch

@@ -21,8 +21,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check build-only",
-    "build-only": "vite build",
+    "build:ft": "vite build --mode ft",
+    "build:prod": "vite build --mode production",
+    "build:ft:type-check": "run-p type-check build:ft",
+    "build:prod:type-check": "run-p type-check build:prod",
     "preview": "vite preview",
     "test:unit": "vitest",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",

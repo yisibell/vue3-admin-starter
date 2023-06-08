@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
 
-export interface ITagView extends Partial<RouteLocationNormalizedLoaded> {
-  title?: string
-}
+export type ITagViewRequiredRouteKey = 'fullPath' | 'path' | 'name' | 'meta' | 'query'
+
+export interface ITagView extends Pick<RouteLocationNormalizedLoaded, ITagViewRequiredRouteKey> {}
 
 export const useTagsViewStore = defineStore('tags-view', {
   state: () => ({
@@ -18,7 +18,7 @@ export const useTagsViewStore = defineStore('tags-view', {
       if (this.visitedViews.some((v) => v.path === view.path)) return
       this.visitedViews.push(
         Object.assign({}, view, {
-          title: view?.meta?.title || 'no-name'
+          meta: { ...view.meta, title: view.meta.title || 'no-name' }
         })
       )
     },
@@ -28,7 +28,7 @@ export const useTagsViewStore = defineStore('tags-view', {
       if (view.name === null || typeof view.name !== 'string') return
 
       if (this.cachedViews.includes(view?.name)) return
-      if (!view?.meta?.noCache) {
+      if (!view.meta.noCache) {
         this.cachedViews.push(view.name)
       }
     },
@@ -53,7 +53,7 @@ export const useTagsViewStore = defineStore('tags-view', {
     // 删除其他已访问路由
     DEL_OTHERS_VISITED_VIEWS(view: ITagView) {
       this.visitedViews = this.visitedViews.filter((v) => {
-        return v?.meta?.affix || v.path === view.path
+        return v.meta.affix || v.path === view.path
       })
     },
 
@@ -72,7 +72,7 @@ export const useTagsViewStore = defineStore('tags-view', {
     // 删除所有已访问路由
     DEL_ALL_VISITED_VIEWS() {
       // keep affix tags
-      const affixTags = this.visitedViews.filter((tag) => tag?.meta?.affix)
+      const affixTags = this.visitedViews.filter((tag) => tag.meta.affix)
       this.visitedViews = affixTags
     },
 
