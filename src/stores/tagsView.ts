@@ -10,7 +10,7 @@ export const useTagsViewStore = defineStore('tags-view', {
     // used by tags view list
     visitedViews: [] as ITagView[],
     // used by <keep-alive />
-    cachedViews: [] as (string | undefined | symbol)[]
+    cachedViews: [] as string[]
   }),
   actions: {
     // 添加已访问路由
@@ -25,7 +25,8 @@ export const useTagsViewStore = defineStore('tags-view', {
 
     // 添加已缓存路由
     ADD_CACHED_VIEW(view: ITagView) {
-      if (view.name === null) return
+      if (view.name === null || typeof view.name !== 'string') return
+
       if (this.cachedViews.includes(view?.name)) return
       if (!view?.meta?.noCache) {
         this.cachedViews.push(view.name)
@@ -44,7 +45,7 @@ export const useTagsViewStore = defineStore('tags-view', {
 
     // 删除已缓存路由
     DEL_CACHED_VIEW(view: ITagView) {
-      if (view.name === null) return
+      if (view.name === null || typeof view.name !== 'string') return
       const index = this.cachedViews.indexOf(view.name)
       index > -1 && this.cachedViews.splice(index, 1)
     },
@@ -58,7 +59,7 @@ export const useTagsViewStore = defineStore('tags-view', {
 
     // 删除其他已缓存路由
     DEL_OTHERS_CACHED_VIEWS(view: ITagView) {
-      if (view.name === null) return
+      if (view.name === null || typeof view.name !== 'string') return
       const index = this.cachedViews.indexOf(view.name)
       if (index > -1) {
         this.cachedViews = this.cachedViews.slice(index, index + 1)
