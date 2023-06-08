@@ -1,0 +1,1 @@
+import{d as o,h as a,i as u,o as p}from"./index-f59f4e85.js";const c=o({name:"RedirectView",render(){return""}}),i=o({...c,setup(_){const e=a(),t=u();return p(()=>{const{params:r,query:s}=e,{path:n}=r;t.replace({path:"/"+n,query:s})}),{route:e,router:t}}});export{i as default};

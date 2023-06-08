@@ -1,0 +1,1 @@
+import{d as e,_ as n,a as t,c as o}from"./index-f59f4e85.js";const s=e({name:"PageOne",setup(){}}),a={style:{"min-height":"200vh"}};function c(r,p,_,i,d,f){return t(),o("div",a,"page one")}const h=n(s,[["render",c]]);export{h as default};

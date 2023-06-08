@@ -1,0 +1,1 @@
+import{d as e,_ as a,a as n,c as t}from"./index-f59f4e85.js";const o=e({name:"PageThree",setup(){}});function r(s,c,p,_,d,f){return n(),t("div",null,"page 3")}const l=a(o,[["render",r]]);export{l as default};

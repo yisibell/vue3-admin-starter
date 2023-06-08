@@ -1,0 +1,1 @@
+import{d as e,_ as n,a,c as t}from"./index-f59f4e85.js";const o=e({name:"PageNine",setup(){}});function s(c,r,p,_,i,d){return a(),t("div",null,"page 9")}const l=n(o,[["render",s]]);export{l as default};
