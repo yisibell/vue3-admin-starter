@@ -15,6 +15,7 @@ A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + 
 ## System fuctions
 
 - :construction: Permission control.
+- :construction: Api repo management.
 - :construction: Login page.
 - :heavy_check_mark: Tags view navigation.
 - :heavy_check_mark: Side menu navigation.
