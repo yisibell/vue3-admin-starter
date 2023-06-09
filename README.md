@@ -15,9 +15,11 @@ A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + 
 ## System fuctions
 
 - :construction: Permission control.
-- :heavy_check_mark: Tags view, Support page level caching.
-- :heavy_check_mark: Side menu.
-- :heavy_check_mark: Support internationalization.
+- :construction: Login page.
+- :heavy_check_mark: Tags view navigation.
+- :heavy_check_mark: Side menu navigation.
+- :heavy_check_mark: Internationalization.
+- :heavy_check_mark: Page level caching.
 
 ## Technology stack
 
