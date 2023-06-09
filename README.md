@@ -3,9 +3,14 @@
 
 # vue3-admin-starter
 
-This admin template should help get you started developing with Vue 3 in Vite.
+A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + element-plus + axios.
 
 # Features
+
+| Development status | Description |
+| :---: | :---: |
+| :construction: | Developing |
+| :heavy_check_mark: | Completed |
 
 ## System fuctions
 
@@ -28,7 +33,7 @@ This admin template should help get you started developing with Vue 3 in Vite.
 # Setup
 
 ```bash
-# install deps
+# install dependencies
 $ pnpm install
 
 ```
@@ -36,16 +41,17 @@ $ pnpm install
 # Development
 
 ```bash
+# Developing locally
 $ pnpm dev
 ```
 
 # Production
 
 ```bash
-# building for function test env
+# building for function test environment
 $ pnpm build:ft
 
-# building for production env
+# building for production environment
 $ pnpm build:prod
 ```
 

@@ -1,7 +1,7 @@
 {
   "name": "vue3-admin-starter",
   "version": "0.0.2",
-  "description": "This admin template should help get you started developing with Vue 3 in Vite.",
+  "description": "A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + element-plus + axios.",
   "author": {
     "name": "elenh",
     "email": "yisiwings@163.com"
@@ -13,7 +13,11 @@
     "vue3",
     "admin",
     "admin-template",
-    "element-plus"
+    "element-plus",
+    "pinia",
+    "typescript",
+    "vue-router",
+    "axios"
   ],
   "homepage": "https://github.com/yisibell/vue3-admin-starter",
   "bugs": {
