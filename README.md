@@ -21,6 +21,7 @@ A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + 
 - :heavy_check_mark: Side menu navigation.
 - :heavy_check_mark: Internationalization.
 - :heavy_check_mark: Page level caching.
+- :heavy_check_mark: SVG icons management.
 
 ## Technology stack
 
@@ -32,6 +33,7 @@ A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + 
 - :heavy_check_mark: **Vue3** + **Vite4**.
 - :construction: **axios** for http request.
 - :heavy_check_mark: **vue-i18n** for internationalization.
+- :heavy_check_mark: **vite-plugin-svg4vue** for SVG icons management.
 
 # Setup
 
