@@ -27,7 +27,7 @@ import { useAppStore } from '@/stores/app'
 
 const permissionStore = usePermissionStore()
 
-const routes = computed(() => permissionStore.routes)
+const routes = computed(() => permissionStore.sidebarList)
 
 const route = useRoute()
 

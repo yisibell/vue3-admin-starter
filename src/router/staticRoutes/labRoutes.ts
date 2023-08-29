@@ -21,13 +21,24 @@ export const labRoutes: IRouteRecord[] = [
         }
       },
       {
-        name: 'PageOne',
         path: 'page-one',
         component: () => import('@/views/demo/PageOne.vue'),
         meta: {
           title: '页面1',
-          icon: 'flowchart'
-        }
+          icon: 'flowchart',
+          alwaysShow: true
+        },
+        children: [
+          {
+            name: 'PageOne',
+            path: 'page-one',
+            component: () => import('@/views/demo/PageOne.vue'),
+            meta: {
+              title: '页面1-1',
+              icon: 'flowchart'
+            }
+          }
+        ]
       },
       {
         name: 'PageTwo',

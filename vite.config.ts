@@ -55,5 +55,13 @@ export default defineConfig({
     ElementPlus({
       useSource: true
     })
-  ]
+  ],
+  server: {
+    proxy: {
+      '/api/v1': {
+        target: 'http://ft-api-nvwa.smaloo.com',
+        changeOrigin: true
+      }
+    }
+  }
 })

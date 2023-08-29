@@ -15,8 +15,9 @@ A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + 
 ## System fuctions
 
 - :construction: Permission control.
-- :construction: Api repo management.
-- :construction: Login page.
+- :construction: System control.
+- :heavy_check_mark: Api repo management.
+- :heavy_check_mark: Login page.
 - :construction: 404 page.
 - :heavy_check_mark: Tags view navigation.
 - :heavy_check_mark: Side menu navigation.
@@ -32,7 +33,7 @@ A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + 
 - :heavy_check_mark: Using **pinia** for state management.
 - :heavy_check_mark: Using **element-plus** ui component libary.
 - :heavy_check_mark: **Vue3** + **Vite4**.
-- :construction: **axios** for http request.
+- :heavy_check_mark: **axios** for http request.
 - :heavy_check_mark: **vue-i18n** for internationalization.
 - :heavy_check_mark: **vite-plugin-svg4vue** for SVG icons management.
 

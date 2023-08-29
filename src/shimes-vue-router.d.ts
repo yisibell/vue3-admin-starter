@@ -35,5 +35,10 @@ declare module 'vue-router' {
      * 当设置 noRedirect 的时候该路由在面包屑导航中不可被点击
      */
     redirect?: string
+
+    /**
+     * 设置侧边菜单激活 path
+     */
+    activeMenu?: string
   }
 }

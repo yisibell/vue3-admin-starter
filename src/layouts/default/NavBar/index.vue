@@ -44,6 +44,7 @@ import { useAppStore } from '@/stores/app'
 import Breadcrumb from './BreadcrumbNav.vue'
 import Hamburger from './HamburgerIcon.vue'
 import LangSelect from './LangSelect.vue'
+import { useUserStore } from '@/stores/user'
 
 const AppStore = useAppStore()
 
@@ -56,7 +57,10 @@ const toggleSideBar = () => {
 const router = useRouter()
 const route = useRoute()
 
-const logout = () => {
+const UserStore = useUserStore()
+
+const logout = async () => {
+  await UserStore.logout()
   router.push(`/login?redirect=${route.fullPath}`).catch((err) => {
     console.warn(err)
   })
