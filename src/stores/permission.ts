@@ -6,18 +6,26 @@ import type { IGetAllResourceParams, IRouteResourceInfo } from '@/api/resource/i
 import { getAllResource } from '@/api/resource'
 import cloneDeep from 'lodash/cloneDeep'
 
+export const getFullRoutes = (routes: IRouteRecord[], concatDynamicRoutes: boolean = true) => {
+  if (concatDynamicRoutes) {
+    return constantRoutes.concat(routes, asyncRoutesBase)
+  } else {
+    return constantRoutes.concat(asyncRoutesBase)
+  }
+}
+
 export const usePermissionStore = defineStore('permission', {
   state: () => ({
+    sidebarList: [] as IRouteRecord[],
     routes: constantRoutes as IRouteRecord[],
     dynamicRoutes: [] as IRouteRecord[],
     resources: [] as IRouteResourceInfo[],
-    resourceAuthCodes: [] as string[],
-    sidebarList: [] as IRouteRecord[]
+    resourceAuthCodes: [] as string[]
   }),
   actions: {
     SET_ROUTES(routes: IRouteRecord[]) {
       this.dynamicRoutes = routes
-      this.routes = constantRoutes.concat(routes, asyncRoutesBase)
+      this.routes = getFullRoutes(routes)
     },
     SET_RESOURCE_AUTH_CODES(arr: string[]) {
       this.resourceAuthCodes = arr
@@ -26,7 +34,8 @@ export const usePermissionStore = defineStore('permission', {
       this.resources = data
     },
     setSidebarList(routes: IRouteRecord[]) {
-      this.sidebarList = constantRoutes.concat(routes, asyncRoutesBase)
+      // TODO: update to true
+      this.sidebarList = getFullRoutes(routes, false)
     },
     /** 获取所有资源 */
     async allResources(payload?: { force?: boolean; params?: IGetAllResourceParams }) {

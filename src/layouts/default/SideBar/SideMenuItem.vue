@@ -36,7 +36,7 @@
           color="currentColor"
           class="menu-item-icon"
         />
-        <span v-if="item.meta && item.meta.title && !isCollapse">
+        <span v-if="item.meta && item.meta.title && (!isCollapse || (isCollapse && !isFirstLevel))">
           {{ $t(item.meta.title) }}
         </span>
       </template>
@@ -125,13 +125,15 @@ const resolvePath = (routePath: string) => {
 
 <style lang="scss" scoped>
 .menu-item-icon {
-  margin-right: 6px !important;
+  margin-right: 10px !important;
   visibility: unset !important;
 }
 
 .simple-mode {
-  .menu-item-icon {
-    margin-right: 0px !important;
+  &.first-level {
+    .menu-item-icon {
+      margin-right: 0px !important;
+    }
   }
 }
 </style>

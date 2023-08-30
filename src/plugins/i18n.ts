@@ -5,8 +5,8 @@ import enLocale from '@/locales/en'
 import zhLocale from '@/locales/zh'
 
 // element-plus国际化
-import enLocaleElementPlus from 'element-plus/lib/locale/lang/en'
-import zhLocaleElementPlus from 'element-plus/lib/locale/lang/zh-cn'
+import enLocaleElementPlus from 'element-plus/dist/locale/en.mjs'
+import zhLocaleElementPlus from 'element-plus/dist/locale/zh-cn.mjs'
 
 export const localesConfigs = {
   en: {

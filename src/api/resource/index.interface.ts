@@ -6,7 +6,6 @@ export interface IGetAllResourceParams {
 
 export interface IRouteResourceInfo {
   id: number
-  sub: IRouteResourceInfo[]
 
   /** 父节点 */
   parent_id: number
@@ -47,6 +46,13 @@ export interface IRouteResourceInfo {
   /** 如果设置为false，则不会在breadcrumb面包屑中显示 */
   route_breadcrumb: number
 
-  /** 关联数据权限 id */
-  relation: number[]
+  sub: IRouteResourceInfo[]
 }
+
+export type TAddResourceParams = Omit<IRouteResourceInfo, 'id' | 'sub' | 'node_name'>
+export type TAddPageResourceParams = Pick<
+  IRouteResourceInfo,
+  'type' | 'parent_id' | 'name' | 'node_name'
+>
+
+export type IResourceParams = TAddResourceParams | TAddPageResourceParams

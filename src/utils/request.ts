@@ -18,11 +18,11 @@ const service = axios.create({
 // Request interceptors
 service.interceptors.request.use(
   (config) => {
-    const { accessToken } = useUserStore()
+    const UserStore = useUserStore()
 
     // Add X-Access-Token header to every request, you can add other custom headers here
-    if (accessToken) {
-      config.headers.token = accessToken
+    if (UserStore.accessToken) {
+      config.headers.token = UserStore.accessToken
     }
 
     return config

@@ -122,5 +122,25 @@ export const labRoutes: IRouteRecord[] = [
         }
       }
     ]
+  },
+  {
+    path: '/system',
+    component: LayoutDefault,
+    meta: {
+      title: '系统设置',
+      icon: 'system-config',
+      alwaysShow: true
+    },
+    children: [
+      {
+        path: 'resource',
+        name: 'SystemResource',
+        component: () => import('@/views/system/resource/index.vue'),
+        meta: {
+          title: '资源管理',
+          icon: 'resource-config'
+        }
+      }
+    ]
   }
 ]

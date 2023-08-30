@@ -22,10 +22,7 @@ export const initPermissionGuard = (router: Router) => {
       } else {
         if (UserStore.userInfo.resourceIds.length === 0 && !UserStore.userInfo.id) {
           try {
-            await Promise.all([
-              UserStore.fetchUserInfo(),
-              PermissionStore.allResources({ force: true })
-            ])
+            await Promise.all([UserStore.fetchUserInfo(), PermissionStore.allResources()])
 
             const resourceIds = UserStore.userInfo.resourceIds
             const isAdmin = UserStore.userInfo.is_admin

@@ -5,6 +5,10 @@
 <script setup lang="ts">
 import { ref, watchEffect, computed } from 'vue'
 
+defineOptions({
+  name: 'SvgIcon'
+})
+
 const props = withDefaults(
   defineProps<{
     name: string
@@ -70,13 +74,6 @@ watchEffect(async () => {
   } catch {
     console.error(`[vue-svg-icons] Icon '${props.name}' doesn't exist in 'assets/icons'`)
   }
-})
-</script>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  name: 'SvgIcon'
 })
 </script>
 
