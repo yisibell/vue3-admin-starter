@@ -3,3 +3,22 @@
 .view-container {
   padding: 14px;
 }
+
+.color {
+  &--primary {
+    color: var(--el-color-primary);
+  }
+
+  &--danger {
+    color: var(--el-color-danger);
+  }
+
+  &--warning {
+    color: var(--el-color-warning);
+  }
+
+  &--info {
+    color: var(--el-color-info);
+  }
+
+}

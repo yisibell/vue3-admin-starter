@@ -63,6 +63,6 @@ export const initPermissionGuard = (router: Router) => {
     // finish progress bar
     tricklingProgress.done()
     // set page title
-    document.title = to.meta?.title || ''
+    document.title = to.meta.title ? `${settings.title} | ${to.meta.title}` : settings.title
   })
 }
