@@ -4,18 +4,12 @@ import { useAppStore } from '@/stores/app'
 import enLocale from '@/locales/en'
 import zhLocale from '@/locales/zh'
 
-// element-plus国际化
-import enLocaleElementPlus from 'element-plus/dist/locale/en.mjs'
-import zhLocaleElementPlus from 'element-plus/dist/locale/zh-cn.mjs'
-
 export const localesConfigs = {
   en: {
-    ...enLocale,
-    ...enLocaleElementPlus
+    ...enLocale
   },
   zh: {
-    ...zhLocale,
-    ...zhLocaleElementPlus
+    ...zhLocale
   }
 }
 

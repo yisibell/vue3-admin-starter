@@ -102,6 +102,7 @@ import { paramsVerify } from '@/utils'
 import { filterResourceTypeLabel, filterBoolToText } from '@/filters'
 import ResourceEditor from './ResourceEditor.vue'
 import { ElMessageBox, ElMessage } from 'element-plus'
+import { usePermissionStore } from '@/stores/permission'
 
 defineOptions({
   name: 'SystemResource'
@@ -129,12 +130,11 @@ const getTableData = async () => {
   }
 }
 
+const PermissionStore = usePermissionStore()
+
 const allResources = ref<IRouteResourceInfo[]>([])
 const cacheAllResources = async () => {
-  const { status, data } = await getAllResource()
-  if (status === 200) {
-    allResources.value = data
-  }
+  allResources.value = await PermissionStore.allResources({ force: true })
 }
 
 const handleQuery = () => {

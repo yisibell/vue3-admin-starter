@@ -140,6 +140,24 @@ export const labRoutes: IRouteRecord[] = [
           title: '资源管理',
           icon: 'resource-config'
         }
+      },
+      {
+        path: 'role',
+        name: 'SystemRole',
+        component: () => import('@/views/system/role/index.vue'),
+        meta: {
+          title: '角色管理',
+          icon: 'role'
+        }
+      },
+      {
+        path: 'user',
+        name: 'SystemUser',
+        component: () => import('@/views/system/user/index.vue'),
+        meta: {
+          title: '用户管理',
+          icon: 'user'
+        }
       }
     ]
   }
