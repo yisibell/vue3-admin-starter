@@ -28,7 +28,7 @@ export default {
   /**
    * @description Whether to enable anonymous mode
    */
-  anonymousMode: false,
+  anonymousMode: true,
 
   /**
    * @description Whether show dynamic sidebar menu
