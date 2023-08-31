@@ -1,22 +1,15 @@
 import { defineStore } from 'pinia'
 import type { IRouteRecord } from '@/router/interfaces/core'
-import { constantRoutes } from '@/router/staticRoutes'
-import { createRoutes, createAuthList, asyncRoutesBase } from '@/router/dynamicRoutes'
+import { constantRoutes, getFullRoutes } from '@/router/staticRoutes'
+import { createRoutes, createAuthList } from '@/router/dynamicRoutes'
 import type { IGetAllResourceParams, IRouteResourceInfo } from '@/api/resource/index.interface'
 import { getAllResource } from '@/api/resource'
 import cloneDeep from 'lodash/cloneDeep'
-
-export const getFullRoutes = (routes: IRouteRecord[], concatDynamicRoutes: boolean = true) => {
-  if (concatDynamicRoutes) {
-    return constantRoutes.concat(routes, asyncRoutesBase)
-  } else {
-    return constantRoutes.concat(asyncRoutesBase)
-  }
-}
+import settings from '@/settings'
 
 export const usePermissionStore = defineStore('permission', {
   state: () => ({
-    sidebarList: [] as IRouteRecord[],
+    sidebarList: constantRoutes as IRouteRecord[],
     routes: constantRoutes as IRouteRecord[],
     dynamicRoutes: [] as IRouteRecord[],
     resources: [] as IRouteResourceInfo[],
@@ -34,8 +27,7 @@ export const usePermissionStore = defineStore('permission', {
       this.resources = data
     },
     setSidebarList(routes: IRouteRecord[]) {
-      // TODO: update to true
-      this.sidebarList = getFullRoutes(routes, false)
+      this.sidebarList = getFullRoutes(routes, settings.showDynamicSidebarMenu)
     },
     /** 获取所有资源 */
     async allResources(payload?: { force?: boolean; params?: IGetAllResourceParams }) {

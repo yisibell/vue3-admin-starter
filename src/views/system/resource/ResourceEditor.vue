@@ -2,8 +2,8 @@
   <el-dialog
     v-model="dialogVisible"
     :title="title"
-    width="800px"
     :append-to-body="true"
+    width="800px"
     @open="handleWhenOpen"
   >
     <el-form ref="formVNode" :model="form" :rules="rules" label-width="120px">

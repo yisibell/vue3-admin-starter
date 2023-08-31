@@ -4,15 +4,6 @@ import type { IRouteRecord } from '@/router/interfaces/core'
 
 type RouteConfig = IRouteRecord
 
-// 基础的动态路由，带有通配符 * 的路由应该始终放置在路由表的最后面，会拼接到验权生成的动态路由后面
-const asyncRoutesBase = [
-  {
-    path: '*',
-    redirect: '/404',
-    meta: { hidden: true }
-  }
-]
-
 /**
  *@desc: 生成动态路由表
  *@param ori {Array of Object} 资源树
@@ -103,4 +94,4 @@ const createAuthList = (
   return res
 }
 
-export { createAuthList, createRoutes, asyncRoutesBase }
+export { createAuthList, createRoutes }

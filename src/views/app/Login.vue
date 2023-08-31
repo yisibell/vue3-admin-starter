@@ -42,6 +42,7 @@ import { userLogin } from '@/api/user'
 import { useUserStore } from '@/stores/user'
 import type { LocationQueryRaw } from 'vue-router'
 import { useRoute, useRouter } from 'vue-router'
+import settings from '@/settings'
 
 const route = useRoute()
 const router = useRouter()
@@ -72,6 +73,12 @@ const loading = ref(false)
 const handleLogin = () => {
   formVNode.value?.validate(async (valid) => {
     if (valid) {
+      if (settings.anonymousMode) {
+        setToken('')
+        router.push('/')
+        return
+      }
+
       try {
         loading.value = true
         const { status, data, message } = await userLogin(form.value)

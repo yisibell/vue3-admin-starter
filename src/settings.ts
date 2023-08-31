@@ -3,11 +3,13 @@ export default {
 
   /**
    * @description Whether show the settings right-panel
+   * TODO
    */
   showSettings: true,
 
   /**
    * @description Whether need tagsView
+   * TODO
    */
   tagsView: true,
 
@@ -21,5 +23,15 @@ export default {
    */
   sidebarLogo: true,
 
-  dashboardTitle: 'home_page'
+  dashboardTitle: 'home_page',
+
+  /**
+   * @description Whether to enable anonymous mode
+   */
+  anonymousMode: false,
+
+  /**
+   * @description Whether show dynamic sidebar menu
+   */
+  showDynamicSidebarMenu: false
 }

@@ -10,6 +10,7 @@ export const useSettingsStore = defineStore(
     const fixedHeader = ref(defaultSettings.fixedHeader)
     const sidebarLogo = ref(defaultSettings.sidebarLogo)
     const title = ref(defaultSettings.title)
+    const anonymousMode = ref(defaultSettings.anonymousMode)
 
     const setShowSettings = (show: boolean) => {
       showSettings.value = show
@@ -41,7 +42,8 @@ export const useSettingsStore = defineStore(
       sidebarLogo,
       setSidebarLogo,
       title,
-      setTitle
+      setTitle,
+      anonymousMode
     }
   },
   {

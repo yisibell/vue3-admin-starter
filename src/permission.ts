@@ -3,6 +3,7 @@ import type { Router } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { usePermissionStore } from '@/stores/permission'
 import { ElMessage } from 'element-plus'
+import settings from './settings'
 
 const whiteList = ['/login']
 
@@ -47,7 +48,7 @@ export const initPermissionGuard = (router: Router) => {
       }
     } else {
       // Has no token
-      if (whiteList.indexOf(to.path) !== -1) {
+      if (whiteList.indexOf(to.path) !== -1 || settings.anonymousMode) {
         // In the free login whitelist, go directly
         next()
       } else {
