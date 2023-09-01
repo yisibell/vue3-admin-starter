@@ -30,13 +30,13 @@ export const constantRoutes: IRouteRecord[] = (
   ] as IRouteRecord[]
 ).concat(labRoutes, hiddenRoutes)
 
-// 捕获 404 页面
 export const latestRoutes: IRouteRecord[] = [
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/404',
-    meta: { hidden: true }
-  }
+  // 捕获 404 页面
+  // {
+  //   path: '/:pathMatch(.*)*',
+  //   redirect: '/404',
+  //   meta: { hidden: true }
+  // }
 ]
 
 export const getFullRoutes = (routes: IRouteRecord[], concatDynamicRoutes: boolean = true) => {
