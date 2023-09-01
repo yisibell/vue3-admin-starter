@@ -18,7 +18,7 @@ export const usePermissionStore = defineStore('permission', {
   actions: {
     SET_ROUTES(routes: IRouteRecord[]) {
       this.dynamicRoutes = routes
-      this.routes = getFullRoutes(routes)
+      this.routes = getFullRoutes(routes, settings.showDynamicSidebarMenu)
     },
     SET_RESOURCE_AUTH_CODES(arr: string[]) {
       this.resourceAuthCodes = arr
@@ -44,12 +44,13 @@ export const usePermissionStore = defineStore('permission', {
 
       return this.resources
     },
+    /** 生成前端路由 */
     generateRoutes({ resourceIds, isAdmin }: { resourceIds: number[]; isAdmin: 0 | 1 }) {
       const { addRoutes } = createRoutes(this.resources, resourceIds, isAdmin)
 
       this.setSidebarList(cloneDeep(addRoutes))
 
-      // 二级目录和动态路由分离
+      // TIPS: 二级目录和动态路由分离
       addRoutes.forEach((item) => {
         item.children &&
           item.children.length > 0 &&

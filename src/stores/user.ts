@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useTagsViewStore } from '@/stores/tagsView'
 import type { IUserInfo } from '@/api/user/index.interface'
 import { getUserInfo } from '@/api/user'
@@ -23,10 +23,13 @@ export const useUserStore = defineStore(
     }
 
     const userInfo = ref<IUserInfo>(defaultUserInfo())
-
     const setUserInfo = (info: IUserInfo) => {
       userInfo.value = Object.assign(userInfo.value, info)
     }
+
+    const isNeedReFetchUserInfo = computed(
+      () => userInfo.value.resourceIds.length <= 0 && !userInfo.value.id
+    )
 
     const fetchUserInfo = async () => {
       const { status, data } = await getUserInfo()
@@ -48,7 +51,8 @@ export const useUserStore = defineStore(
       logout,
       userInfo,
       setUserInfo,
-      fetchUserInfo
+      fetchUserInfo,
+      isNeedReFetchUserInfo
     }
   },
   {

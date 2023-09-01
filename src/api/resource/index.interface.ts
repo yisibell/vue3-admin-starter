@@ -4,17 +4,21 @@ export interface IGetAllResourceParams {
   id?: number | ''
 }
 
+/** 1 目录，2 菜单，3 页面级操作 */
+export type IResourceTypes = 1 | 2 | 3
+
 export interface IRouteResourceInfo {
+  /** 节点id */
   id: number
 
-  /** 父节点 */
+  /** 父节点id */
   parent_id: number
 
   /** 资源名称 */
   name: string
 
-  /** 资源类型： 1 目录，2 菜单，3 页面级操作 */
-  type: 1 | 2 | 3
+  /** 资源类型 */
+  type: IResourceTypes
 
   /** 排序值（升序） */
   order: number
