@@ -42,6 +42,10 @@ import type { IRouteRecord } from '@/router/interfaces/core'
 import type { ITagView } from '@/stores/tagsView'
 import ScrollPane from './ScrollPane.vue'
 
+defineOptions({
+  name: 'TagsView'
+})
+
 type ScrollPaneComponent = InstanceType<typeof ScrollPane>
 
 const PermissionStore = usePermissionStore()
@@ -263,13 +267,6 @@ const handleScroll = () => {
 onMounted(() => {
   initTags()
   addTags()
-})
-</script>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  name: 'TagsView'
 })
 </script>
 

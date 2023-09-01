@@ -19,6 +19,10 @@ import { useAppStore } from '@/stores/app'
 import { computed } from 'vue'
 import { useSettingsStore } from '@/stores/settings'
 
+defineOptions({
+  name: 'SideBar'
+})
+
 const AppStore = useAppStore()
 const SettingsStore = useSettingsStore()
 
@@ -31,14 +35,6 @@ const sideBarLogoHeight = computed(() => (showSidebarLogo.value ? 50 : 0))
 const sidebarLogoTitle = computed(() => SettingsStore.title)
 
 const scrollbarHeight = computed(() => `calc(100vh - ${sideBarLogoHeight.value}px)`)
-</script>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'SideBar'
-})
 </script>
 
 <style lang="scss" scoped>

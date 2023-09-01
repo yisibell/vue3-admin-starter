@@ -25,6 +25,10 @@ import { computed } from 'vue'
 import { useAppStore } from '@/stores/app'
 import { useSettingsStore } from '@/stores/settings'
 
+defineOptions({
+  name: 'LayoutDefault'
+})
+
 const AppStore = useAppStore()
 const SettingsStore = useSettingsStore()
 
@@ -35,14 +39,6 @@ const asideCSSVars = computed(() => ({
 }))
 
 const fixedHeader = computed(() => SettingsStore.fixedHeader)
-</script>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'LayoutDefault'
-})
 </script>
 
 <style lang="scss" scoped>

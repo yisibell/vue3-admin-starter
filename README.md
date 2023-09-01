@@ -1,6 +1,3 @@
-
-<p align="center">:construction: Developing... :construction:</p>
-
 # vue3-admin-starter
 
 A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + element-plus + axios.
