@@ -26,8 +26,9 @@
               style="width: 100%"
               :loading="loading"
               @click="handleLogin"
-              >登录</el-button
             >
+              登录
+            </el-button>
           </el-form-item>
         </el-form>
       </el-card>
@@ -43,6 +44,10 @@ import { useUserStore } from '@/stores/user'
 import type { LocationQueryRaw } from 'vue-router'
 import { useRoute, useRouter } from 'vue-router'
 import settings from '@/settings'
+
+defineOptions({
+  name: 'LoginView'
+})
 
 const route = useRoute()
 const router = useRouter()
@@ -112,14 +117,6 @@ const getRedirectQuery = (query: LocationQueryRaw) => {
 }
 </script>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'LoginView'
-})
-</script>
-
 <style lang="scss" scoped>
 .login-container {
   position: relative;
@@ -131,6 +128,14 @@ export default defineComponent({
   position: absolute;
   left: calc(50% - 250px);
   top: 200px;
+
+  :deep() {
+    .el-input {
+      &__inner {
+        box-shadow: 0 0 0 1000px #fff inset;
+      }
+    }
+  }
 }
 
 .login-card-header {

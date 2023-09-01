@@ -1,0 +1,10 @@
+// For cover some element-plus styles
+
+.el-dialog {
+  --el-dialog-margin-top: 8vh !important;
+
+  &__header {
+    background-color: #E0E0E0;
+    margin-right: 0px !important;
+  }
+}
