@@ -40,8 +40,8 @@
 
         <el-table-column prop="icon" label="资源图标" align="center" width="90">
           <template #default="{ row }">
-            <!-- <svg-icon :name="row.icon" /> -->
-            {{ row.icon }}
+            <svg-icon :name="row.icon" />
+            <!-- {{ row.icon }} -->
           </template>
         </el-table-column>
         <el-table-column prop="id" label="id" align="center" width="60" />

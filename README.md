@@ -1,6 +1,3 @@
-
-<p align="center">:construction: Developing... :construction:</p>
-
 # vue3-admin-starter
 
 A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + element-plus + axios.
@@ -14,8 +11,8 @@ A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + 
 
 ## System fuctions
 
-- :construction: Permission control.
-- :construction: System control.
+- :heavy_check_mark: Permission control.
+- :heavy_check_mark: System control.
 - :heavy_check_mark: Api repo management.
 - :heavy_check_mark: Login page.
 - :construction: 404 page.

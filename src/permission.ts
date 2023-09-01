@@ -5,7 +5,7 @@ import { usePermissionStore } from '@/stores/permission'
 import { ElMessage } from 'element-plus'
 import settings from './settings'
 
-const whiteList = ['/login']
+const whiteList = ['/login', '/404']
 
 export const initPermissionGuard = (router: Router) => {
   router.beforeEach(async (to, from, next) => {
@@ -21,7 +21,8 @@ export const initPermissionGuard = (router: Router) => {
         next({ path: '/' })
         tricklingProgress.done()
       } else {
-        if (UserStore.userInfo.resourceIds.length === 0 && !UserStore.userInfo.id) {
+        // If user information is not obtained
+        if (UserStore.isNeedReFetchUserInfo) {
           try {
             await Promise.all([UserStore.fetchUserInfo(), PermissionStore.allResources()])
 
@@ -38,7 +39,7 @@ export const initPermissionGuard = (router: Router) => {
           } catch (err) {
             // Remove token and redirect to login page
             UserStore.setToken('')
-            ElMessage.error((err as string) || 'Has Error')
+            ElMessage.error((err as string) || '[Permission guard]: fetch user info Error!')
             next(`/login?redirect=${to.fullPath}`)
             tricklingProgress.done()
           }

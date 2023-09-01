@@ -46,6 +46,10 @@ import Hamburger from './HamburgerIcon.vue'
 import LangSelect from './LangSelect.vue'
 import { useUserStore } from '@/stores/user'
 
+defineOptions({
+  name: 'NavBar'
+})
+
 const AppStore = useAppStore()
 
 const sidebar = computed(() => AppStore.sidebar)
@@ -153,11 +157,3 @@ const logout = async () => {
   }
 }
 </style>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'NavBar'
-})
-</script>
