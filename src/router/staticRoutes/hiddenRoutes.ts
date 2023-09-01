@@ -11,7 +11,8 @@ export const hiddenRoutes: IRouteRecord[] = [
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index.vue')
+        name: 'RedirectView',
+        component: () => import('@/views/app/RedirectView.vue')
       }
     ]
   },

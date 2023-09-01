@@ -5,14 +5,18 @@ import { usePermissionStore } from '@/stores/permission'
 import { ElMessage } from 'element-plus'
 import settings from './settings'
 
-const whiteList = ['/login', '/404']
+export const whiteList = ['/login', '/404', '/redirect']
+
+export const inWhiteList = (path: string) => {
+  return whiteList.some((v) => path.includes(v))
+}
 
 export const initPermissionGuard = (router: Router) => {
   router.beforeEach(async (to, from, next) => {
     // start progress bar
     tricklingProgress.start()
 
-    if (!router.hasRoute(to.name || '')) {
+    if (!inWhiteList(to.path) && !router.hasRoute(to.name || '')) {
       next('/404')
       return
     }
@@ -54,7 +58,7 @@ export const initPermissionGuard = (router: Router) => {
       }
     } else {
       // Has no token
-      if (whiteList.indexOf(to.path) !== -1 || settings.anonymousMode) {
+      if (inWhiteList(to.path) || settings.anonymousMode) {
         // In the free login whitelist, go directly
         next()
       } else {

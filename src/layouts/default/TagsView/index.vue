@@ -41,6 +41,7 @@ import { useTagsViewStore } from '@/stores/tagsView'
 import type { IRouteRecord } from '@/router/interfaces/core'
 import type { ITagView } from '@/stores/tagsView'
 import ScrollPane from './ScrollPane.vue'
+import { inWhiteList } from '@/permission'
 
 defineOptions({
   name: 'TagsView'
@@ -66,9 +67,11 @@ const router = useRouter()
 
 watch(
   () => route,
-  () => {
-    addTags()
-    moveToCurrentTag()
+  (view) => {
+    if (!inWhiteList(view.path)) {
+      addTags()
+      moveToCurrentTag()
+    }
   },
   { deep: true }
 )
