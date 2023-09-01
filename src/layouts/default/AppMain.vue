@@ -33,5 +33,6 @@ const key = computed(() => route.path)
 <style lang="scss" scoped>
 .app-main {
   height: var(--app-main-height);
+  background-color: #f2f6fc;
 }
 </style>

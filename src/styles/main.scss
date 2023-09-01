@@ -1,4 +1,6 @@
 @use './reset.scss';
-@use './layout.module.scss';
+@use './layout.scss';
 @use './transition.scss';
 @use './utils.scss';
+@use './common.scss';
+@use './element/cover.scss';

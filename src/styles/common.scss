@@ -1,0 +1,21 @@
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* 滚动条轨道样式 */
+::-webkit-scrollbar-track {
+  background: #EEEEEE;
+}
+
+/* 滚动条滑块样式 */
+::-webkit-scrollbar-thumb {
+  background-color: #BDBDBD;
+  border-radius: 10px;
+}
+
+/* 滚动条滑块鼠标悬停样式 */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #BDBDBD;
+}

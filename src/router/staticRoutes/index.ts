@@ -10,6 +10,7 @@ export const constantRoutes: IRouteRecord[] = (
   [
     {
       path: '/',
+      name: 'Home',
       component: LayoutDefault,
       redirect: '/dashboard',
       children: [
@@ -29,10 +30,10 @@ export const constantRoutes: IRouteRecord[] = (
   ] as IRouteRecord[]
 ).concat(labRoutes, hiddenRoutes)
 
-// 基础的动态路由，带有通配符 * 的路由应该始终放置在路由表的最后面，会拼接到验权生成的动态路由后面
-export const latestRoutes = [
+// 捕获 404 页面
+export const latestRoutes: IRouteRecord[] = [
   {
-    path: '*',
+    path: '/:pathMatch(.*)*',
     redirect: '/404',
     meta: { hidden: true }
   }

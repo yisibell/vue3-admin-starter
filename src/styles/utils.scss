@@ -6,19 +6,22 @@
 
 .color {
   &--primary {
-    color: var(--el-color-primary);
+    color: var(--el-color-primary) !important;
+  }
+
+  &--success {
+    color: var(--el-color-success) !important;
   }
 
   &--danger {
-    color: var(--el-color-danger);
+    color: var(--el-color-danger) !important;
   }
 
   &--warning {
-    color: var(--el-color-warning);
+    color: var(--el-color-warning) !important;
   }
 
   &--info {
-    color: var(--el-color-info);
+    color: var(--el-color-info) !important;
   }
-
 }
