@@ -13,7 +13,12 @@
             </el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input v-model="form.password" type="password" show-password>
+            <el-input
+              v-model="form.password"
+              type="password"
+              show-password
+              @keyup.enter="handleLogin"
+            >
               <template #prefix>
                 <el-icon><Lock /></el-icon>
               </template>
