@@ -2,7 +2,7 @@ import axios from 'axios'
 import type { AxiosRequestConfig } from 'axios'
 import qs from 'qs'
 import { useUserStore } from '@/stores/user'
-import { ElLoading } from 'element-plus'
+import { ElLoading, ElMessage } from 'element-plus'
 
 export interface IAxiosResponse<T = any> {
   data: T
@@ -43,6 +43,8 @@ service.interceptors.response.use(
 
     const res = response.data
     if (![200, 201].includes(res.status)) {
+      ElMessage.error(res.message || 'Error')
+
       return Promise.reject(new Error(res.message || 'Error'))
     } else {
       return response.data

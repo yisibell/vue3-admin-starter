@@ -8,7 +8,7 @@
     />
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
-      <LangSelect class="right-menu-item hover-effect" />
+      <LangSelect v-if="SettingStore.showLanguagePicker" class="right-menu-item hover-effect" />
 
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
@@ -45,10 +45,13 @@ import Breadcrumb from './BreadcrumbNav.vue'
 import Hamburger from './HamburgerIcon.vue'
 import LangSelect from './LangSelect.vue'
 import { useUserStore } from '@/stores/user'
+import { useSettingsStore } from '@/stores/settings'
 
 defineOptions({
   name: 'NavBar'
 })
+
+const SettingStore = useSettingsStore()
 
 const AppStore = useAppStore()
 

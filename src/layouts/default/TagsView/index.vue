@@ -24,10 +24,12 @@
     </ScrollPane>
 
     <ul v-show="visible" :style="{ left: left + 'px', top: top + 'px' }" class="contextmenu">
-      <li @click="refreshSelectedTag(selectedTag)">Refresh</li>
-      <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">Close</li>
-      <li @click="closeOthersTags">Close Others</li>
-      <li @click="closeAllTags(selectedTag)">Close All</li>
+      <li @click="refreshSelectedTag(selectedTag)">{{ $t('tags_view.refresh') }}</li>
+      <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">
+        {{ $t('tags_view.close') }}
+      </li>
+      <li @click="closeOthersTags">{{ $t('tags_view.close_others') }}</li>
+      <li @click="closeAllTags(selectedTag)">{{ $t('tags_view.close_all') }}</li>
     </ul>
   </div>
 </template>
