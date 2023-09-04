@@ -8,7 +8,7 @@ import settings from './settings'
 export const whiteList = ['/login', '/404', '/redirect']
 
 export const inWhiteList = (path: string) => {
-  return whiteList.some((v) => path.includes(v))
+  return whiteList.some((v) => path.startsWith(v))
 }
 
 export const initPermissionGuard = (router: Router) => {
