@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v1.1.0
+
+[compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v0.0.3...v1.1.0)
+
+### 🚀 Enhancements
+
+- Support hide language picker and others ([73b2994](https://github.com/yisibell/vue3-admin-starter/commit/73b2994))
+- V1 ([47becfd](https://github.com/yisibell/vue3-admin-starter/commit/47becfd))
+
+### 🏡 Chore
+
+- Code perf ([ba50c3f](https://github.com/yisibell/vue3-admin-starter/commit/ba50c3f))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v0.0.3
 
 [compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v0.0.2...v0.0.3)
