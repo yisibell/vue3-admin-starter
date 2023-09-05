@@ -16,11 +16,6 @@ export const initPermissionGuard = (router: Router) => {
     // start progress bar
     tricklingProgress.start()
 
-    if (!inWhiteList(to.path) && !router.hasRoute(to.name || '')) {
-      next('/404')
-      return
-    }
-
     const UserStore = useUserStore()
     const PermissionStore = usePermissionStore()
 
