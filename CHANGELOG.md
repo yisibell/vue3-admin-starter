@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.2.0
+
+[compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.1.0...v1.2.0)
+
+### 🚀 Enhancements
+
+- Upgrade 404 page match rule ([fff3b81](https://github.com/yisibell/vue3-admin-starter/commit/fff3b81))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.1.0
 
 [compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v0.0.3...v1.1.0)
