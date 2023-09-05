@@ -1,9 +1,7 @@
 import type { IRouteRecord } from '@/router/interfaces/core'
 import LayoutDefault from '@/layouts/default/index.vue'
-
 import { hiddenRoutes } from './hiddenRoutes'
 import { labRoutes } from './labRoutes'
-
 import defaultSettings from '@/settings'
 
 export const constantRoutes: IRouteRecord[] = (
@@ -30,14 +28,7 @@ export const constantRoutes: IRouteRecord[] = (
   ] as IRouteRecord[]
 ).concat(labRoutes, hiddenRoutes)
 
-export const latestRoutes: IRouteRecord[] = [
-  // 捕获 404 页面
-  // {
-  //   path: '/:pathMatch(.*)*',
-  //   redirect: '/404',
-  //   meta: { hidden: true }
-  // }
-]
+export const latestRoutes: IRouteRecord[] = []
 
 export const getFullRoutes = (routes: IRouteRecord[], concatDynamicRoutes: boolean = true) => {
   if (concatDynamicRoutes) {

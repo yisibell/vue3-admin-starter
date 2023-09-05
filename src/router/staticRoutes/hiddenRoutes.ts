@@ -31,5 +31,11 @@ export const hiddenRoutes: IRouteRecord[] = [
       hidden: true
     },
     component: () => import('@/views/app/404.vue')
+  },
+  // 捕获 404 页面
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/404',
+    meta: { hidden: true }
   }
 ]
