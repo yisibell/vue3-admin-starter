@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.5.1
+
+[compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.5.0...v1.5.1)
+
+### 🩹 Fixes
+
+- Tags-view scroll pane move to current tag problem ([7a6dece](https://github.com/yisibell/vue3-admin-starter/commit/7a6dece))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.5.0
 
 [compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.4.0...v1.5.0)
