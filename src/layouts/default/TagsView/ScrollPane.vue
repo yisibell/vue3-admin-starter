@@ -5,14 +5,13 @@
 </template>
 
 <script lang="ts" setup>
-import type { ITagView } from '@/stores/tagsView'
 import { onMounted, onUnmounted, ref } from 'vue'
 import type { ElScrollbar } from 'element-plus'
 import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    tagList: HTMLElement[]
+    tagListElements: HTMLElement[]
     tagAndTagSpacing?: number
   }>(),
   {
@@ -39,7 +38,7 @@ const handleScroll = (e: WheelEvent) => {
   }
 }
 
-const moveToTarget = (currentTag: ITagView) => {
+const moveToTarget = (currentTag: HTMLElement) => {
   const $container = scrollContainerEl.value
   const $scrollWrapper = scrollWrapper.value
 
@@ -47,15 +46,15 @@ const moveToTarget = (currentTag: ITagView) => {
 
   const $containerWidth = $container.offsetWidth
 
-  const tagList = props.tagList
+  const tagListElements = props.tagListElements
 
   let firstTag = null
   let lastTag = null
 
   // find first tag and last tag
-  if (tagList.length > 0) {
-    firstTag = tagList[0]
-    lastTag = tagList[tagList.length - 1]
+  if (tagListElements.length > 0) {
+    firstTag = tagListElements[0]
+    lastTag = tagListElements[tagListElements.length - 1]
   }
 
   if (firstTag === currentTag) {
@@ -64,9 +63,12 @@ const moveToTarget = (currentTag: ITagView) => {
     $scrollWrapper.scrollLeft = $scrollWrapper.scrollWidth - $containerWidth
   } else {
     // find preTag and nextTag
-    const currentIndex = tagList.findIndex((item) => item === currentTag)
-    const prevTag = tagList[currentIndex - 1]
-    const nextTag = tagList[currentIndex + 1]
+    const currentIndex = tagListElements.findIndex((item) => item === currentTag)
+
+    if (currentIndex < 0) return
+
+    const prevTag = tagListElements[currentIndex - 1]
+    const nextTag = tagListElements[currentIndex + 1]
 
     // the tag's offsetLeft after of nextTag
     const afterNextTagOffsetLeft = nextTag.offsetLeft + nextTag.offsetWidth + props.tagAndTagSpacing

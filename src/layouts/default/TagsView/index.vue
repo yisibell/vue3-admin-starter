@@ -1,12 +1,16 @@
 <template>
   <div ref="tagsViewContainerEl" class="tags-view-container">
-    <ScrollPane :tag-list="tagList" class="tags-view-wrapper" @scroll="handleScroll">
+    <ScrollPane
+      :tag-list-elements="tagListElements"
+      class="tags-view-wrapper"
+      @scroll="handleScroll"
+    >
       <RouterLink
         v-for="tag in visitedViews"
         :ref="getTagVNodes"
         :key="tag.fullPath"
         :class="tag.path === route.path ? 'active' : ''"
-        :to="{ path: `${tag.path}`, query: tag.query }"
+        :to="{ path: `${tag.path}`, query: tag.query, fullPath: `${tag.fullPath}` }"
         class="tags-view-item"
         @click.middle="closeSelectedTag(tag)"
         @contextmenu.prevent="openMenu(tag, $event)"
@@ -86,13 +90,15 @@ watch(visible, (value: boolean) => {
   }
 })
 
-const tagList = ref<HTMLAnchorElement[]>([])
+const tagListElements = ref<HTMLAnchorElement[]>([])
+const tagVNodes = ref<any[]>([])
 const getTagVNodes = (VNode: any) => {
   const tagEl = (VNode && VNode.$el) as HTMLAnchorElement
   if (tagEl) {
-    if (tagList.value.some((v) => v.href === tagEl.href)) return
+    if (tagListElements.value.some((v) => v.href === tagEl.href)) return
 
-    tagList.value.push(tagEl)
+    tagListElements.value.push(tagEl)
+    tagVNodes.value.push(VNode)
   }
 }
 
@@ -155,12 +161,15 @@ const isAffix = (tag?: ITagView) => {
 }
 
 const moveToCurrentTag = () => {
-  const tags = visitedViews.value
+  const tags = tagVNodes.value
 
   nextTick(() => {
     for (const tag of tags) {
-      if (tag.path === route.path) {
-        scrollPane.value?.moveToTarget(tag) // TODO: move to target tag
+      const to = tag.to as ITagView
+      const targetEl = tag.$el as HTMLAnchorElement
+
+      if (to.path === route.path) {
+        scrollPane.value?.moveToTarget(targetEl)
 
         // when query is different then update
         if (tag.fullPath !== route.fullPath) {
