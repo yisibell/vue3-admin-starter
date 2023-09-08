@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.4.0
+
+[compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.3.0...v1.4.0)
+
+### 🚀 Enhancements
+
+- Support hideSidebar route config ([570a203](https://github.com/yisibell/vue3-admin-starter/commit/570a203))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.3.0
 
 [compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.2.0...v1.3.0)
