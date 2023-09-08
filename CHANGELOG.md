@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.5.0
+
+[compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.4.0...v1.5.0)
+
+### 🚀 Enhancements
+
+- Change `noRedirect` to `noredirect` ([4279dee](https://github.com/yisibell/vue3-admin-starter/commit/4279dee))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.4.0
 
 [compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.3.0...v1.4.0)
