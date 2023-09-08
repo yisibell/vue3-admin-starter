@@ -32,12 +32,12 @@ declare module 'vue-router' {
     alwaysShow?: boolean
 
     /**
-     * 当设置 noRedirect 的时候该路由在面包屑导航中不可被点击
+     * 当设置 noredirect 的时候该路由在面包屑导航中不可被点击
      */
     redirect?: string
 
     /**
-     * 自定义当前路由激活菜单项
+     * 自定义当前路由激活菜单项 path
      */
     activeMenu?: string
 

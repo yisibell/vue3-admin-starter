@@ -3,7 +3,7 @@
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
         <span
-          v-if="item.meta.redirect === 'noRedirect' || index === breadcrumbs.length - 1"
+          v-if="item.meta.redirect === 'noredirect' || index === breadcrumbs.length - 1"
           class="no-redirect"
         >
           {{ item.meta && $t(item.meta.title || '') }}
