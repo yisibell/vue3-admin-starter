@@ -1,12 +1,14 @@
 <template>
   <div class="navbar">
-    <hamburger
-      id="hamburger-container"
-      :is-active="sidebar.opened"
-      class="hamburger-container"
-      @toggle-click="toggleSideBar"
-    />
-    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
+    <div class="navbar__left">
+      <Hamburger
+        :is-active="sidebar.opened"
+        :disabled="disabledHamburger"
+        @toggle-click="toggleSideBar"
+      />
+      <Breadcrumb />
+    </div>
+
     <div class="right-menu">
       <LangSelect v-if="SettingStore.showLanguagePicker" class="right-menu-item hover-effect" />
 
@@ -51,6 +53,15 @@ defineOptions({
   name: 'NavBar'
 })
 
+withDefaults(
+  defineProps<{
+    disabledHamburger?: boolean
+  }>(),
+  {
+    disabledHamburger: false
+  }
+)
+
 const SettingStore = useSettingsStore()
 
 const AppStore = useAppStore()
@@ -81,32 +92,15 @@ const logout = async () => {
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  display: flex;
+  justify-content: space-between;
 
-  .hamburger-container {
-    line-height: 46px;
-    height: 100%;
-    float: left;
-    padding: 0 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-    -webkit-tap-highlight-color: transparent;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.025);
-    }
-  }
-
-  .breadcrumb-container {
-    float: left;
-  }
-
-  .errLog-container {
-    display: inline-block;
-    vertical-align: top;
+  &__left {
+    display: flex;
+    align-items: center;
   }
 
   .right-menu {
-    float: right;
     height: 100%;
     line-height: 50px;
     display: flex;

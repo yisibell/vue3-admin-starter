@@ -37,8 +37,13 @@ declare module 'vue-router' {
     redirect?: string
 
     /**
-     * 设置侧边菜单激活 path
+     * 自定义当前路由激活菜单项
      */
     activeMenu?: string
+
+    /**
+     * 跳转到当前路由时，是否隐藏侧边菜单
+     */
+    hideSidebar?: boolean
   }
 }
