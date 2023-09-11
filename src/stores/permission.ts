@@ -6,6 +6,21 @@ import type { IGetAllResourceParams, IRouteResourceInfo } from '@/api/resource/i
 import { getAllResource } from '@/api/resource'
 import cloneDeep from 'lodash/cloneDeep'
 import settings from '@/settings'
+import router from '@/router'
+
+const flatRouteNames = (routes: IRouteRecord[], res: (string | symbol)[] = []) => {
+  routes.forEach((v) => {
+    if (v.name) {
+      res.push(v.name)
+    }
+
+    if (v.children && v.children.length > 0) {
+      flatRouteNames(v.children, res)
+    }
+  })
+
+  return res
+}
 
 export const usePermissionStore = defineStore('permission', {
   state: () => ({
@@ -15,6 +30,11 @@ export const usePermissionStore = defineStore('permission', {
     resources: [] as IRouteResourceInfo[],
     resourceAuthCodes: [] as string[]
   }),
+  getters: {
+    dynamicRouteNames(): (string | symbol)[] {
+      return [...new Set([...flatRouteNames(this.dynamicRoutes)])]
+    }
+  },
   actions: {
     SET_ROUTES(routes: IRouteRecord[]) {
       this.dynamicRoutes = routes
@@ -66,6 +86,14 @@ export const usePermissionStore = defineStore('permission', {
 
       this.SET_ROUTES(addRoutes)
       this.SET_RESOURCE_AUTH_CODES(createAuthList(this.resources, resourceIds, isAdmin))
+    },
+    /** 删除动态路由 */
+    removeDynamicRoutes() {
+      this.dynamicRouteNames.forEach((name) => {
+        if (router.hasRoute(name)) {
+          router.removeRoute(name)
+        }
+      })
     }
   }
 })
