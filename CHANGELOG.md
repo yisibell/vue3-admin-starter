@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.6.0
+
+[compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.5.2...v1.6.0)
+
+### 🚀 Enhancements
+
+- Remove dynamic routes when logout ([0556b26](https://github.com/yisibell/vue3-admin-starter/commit/0556b26))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.5.2
 
 [compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.5.1...v1.5.2)
