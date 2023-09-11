@@ -10,7 +10,7 @@
         :ref="getTagVNodes"
         :key="tag.fullPath"
         :class="tag.path === route.path ? 'active' : ''"
-        :to="{ path: `${tag.path}`, query: tag.query, fullPath: `${tag.fullPath}` }"
+        :to="{ path: `${tag.path}`, query: tag.query }"
         class="tags-view-item"
         @click.middle="closeSelectedTag(tag)"
         @contextmenu.prevent="openMenu(tag, $event)"
@@ -165,14 +165,15 @@ const moveToCurrentTag = () => {
 
   nextTick(() => {
     for (const tag of tags) {
-      const to = tag.to as ITagView
+      const to = tag.to as Pick<ITagView, 'path' | 'query'>
       const targetEl = tag.$el as HTMLAnchorElement
+      const tagFullPath = router.resolve({ path: to.path, query: to.query }).fullPath
 
       if (to.path === route.path) {
         scrollPane.value?.moveToTarget(targetEl)
 
         // when query is different then update
-        if (tag.fullPath !== route.fullPath) {
+        if (tagFullPath !== route.fullPath) {
           TagsViewStore.updateVisitedView(route)
         }
 
