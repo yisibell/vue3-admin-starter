@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { useTagsViewStore } from '@/stores/tagsView'
+import { usePermissionStore } from '@/stores/permission'
 import type { IUserInfo } from '@/api/user/index.interface'
 import { getUserInfo } from '@/api/user'
 
@@ -16,6 +17,7 @@ export const useUserStore = defineStore(
   'user',
   () => {
     const TagsViewStore = useTagsViewStore()
+    const PermissionStore = usePermissionStore()
 
     const accessToken = ref('')
     const setToken = (token: string = '') => {
@@ -42,6 +44,7 @@ export const useUserStore = defineStore(
     const logout = () => {
       setToken('')
       TagsViewStore.delAllViews()
+      PermissionStore.removeDynamicRoutes()
       setUserInfo(defaultUserInfo())
     }
 
