@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v2.0.0
+
+[compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.6.0...v2.0.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Update vite to v5 and other deps ([c59045f](https://github.com/yisibell/vue3-admin-starter/commit/c59045f))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Update vite to v5 and other deps ([c59045f](https://github.com/yisibell/vue3-admin-starter/commit/c59045f))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v1.6.0
 
 [compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.5.2...v1.6.0)
