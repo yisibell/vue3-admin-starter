@@ -29,7 +29,7 @@ A vue admin template powered by pnpm + vite + typescript + vue3 + vue-router + p
 - :heavy_check_mark: Styling via **sass**.
 - :heavy_check_mark: Using **pinia** for state management.
 - :heavy_check_mark: Using **element-plus** ui component libary.
-- :heavy_check_mark: **Vue3** + **Vite4**.
+- :heavy_check_mark: **Vue3** + **Vite5**.
 - :heavy_check_mark: **axios** for http request.
 - :heavy_check_mark: **vue-i18n** for internationalization.
 - :heavy_check_mark: **vite-plugin-svg4vue** for SVG icons management.
