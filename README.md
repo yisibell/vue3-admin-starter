@@ -2,6 +2,8 @@
 
 A vue admin template powered by pnpm + vite + typescript + vue3 + vue-router + pinia + element-plus + axios.
 
+- [Release Notes](./CHANGELOG.md).
+
 # Features
 
 | Development status | Description |
@@ -66,8 +68,6 @@ $ pnpm build:prod
 $ pnpm preview
 ```
 
-# CHANGE LOG
 
-see [CHANGE LOG](./CHANGELOG.md).
 
 
