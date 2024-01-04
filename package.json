@@ -1,6 +1,6 @@
 {
   "name": "vue3-admin-starter",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A vue admin template powered by vite + typescript + vue3 + vue-router + pinia + element-plus + axios.",
   "author": {
     "name": "elenh",

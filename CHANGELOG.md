@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v2.0.1
+
+[compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v2.0.0...v2.0.1)
+
+### 🏡 Chore
+
+- Update readme ([466f029](https://github.com/yisibell/vue3-admin-starter/commit/466f029))
+- Update readme ([aaf2fef](https://github.com/yisibell/vue3-admin-starter/commit/aaf2fef))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.0.0
 
 [compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v1.6.0...v2.0.0)
