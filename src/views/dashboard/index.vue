@@ -1,5 +1,7 @@
 <template>
-  <div class="dashboard-container">Home</div>
+  <div class="dashboard-container">
+    <div class="d-flex align-center justify-center">Home</div>
+  </div>
 </template>
 
 <script setup lang="ts">

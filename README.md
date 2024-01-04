@@ -16,13 +16,14 @@ A vue admin template powered by pnpm + vite + typescript + vue3 + vue-router + p
 - :heavy_check_mark: Permission control.
 - :heavy_check_mark: System control.
 - :heavy_check_mark: Api repo management.
-- :heavy_check_mark: Login page.
-- :heavy_check_mark: 404 page.
 - :heavy_check_mark: Tags view navigation.
 - :heavy_check_mark: Side menu navigation.
 - :heavy_check_mark: Internationalization.
 - :heavy_check_mark: Page level caching.
 - :heavy_check_mark: SVG icons management.
+- :heavy_check_mark: Login page.
+- :heavy_check_mark: 404 page.
+- :construction: Dashboard page.
 
 ## Technology stack
 
