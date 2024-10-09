@@ -72,7 +72,7 @@
           </el-form-item>
 
           <el-form-item label="hidden" prop="route_hidden">
-            <el-select v-model="form.route_hidden">
+            <el-select v-model="form.route_hidden" style="width: 50%">
               <el-option
                 v-for="v in bool_options"
                 :key="v.value"
@@ -82,7 +82,7 @@
             </el-select>
           </el-form-item>
           <el-form-item label="alwaysShow" prop="route_always_show">
-            <el-select v-model="form.route_always_show">
+            <el-select v-model="form.route_always_show" style="width: 50%">
               <el-option
                 v-for="v in bool_options"
                 :key="v.value"
@@ -92,7 +92,7 @@
             </el-select>
           </el-form-item>
           <el-form-item label="noCache" prop="route_no_cache">
-            <el-select v-model="form.route_no_cache">
+            <el-select v-model="form.route_no_cache" style="width: 50%">
               <el-option
                 v-for="v in bool_options"
                 :key="v.value"
@@ -102,7 +102,7 @@
             </el-select>
           </el-form-item>
           <el-form-item label="breadcrumb" prop="route_breadcrumb">
-            <el-select v-model="form.route_breadcrumb">
+            <el-select v-model="form.route_breadcrumb" style="width: 50%">
               <el-option
                 v-for="v in bool_options"
                 :key="v.value"

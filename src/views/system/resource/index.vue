@@ -23,65 +23,30 @@
     </el-card>
 
     <el-card>
-      <el-table
+      <el-tree
         :data="tableData"
-        :tree-props="{
+        :props="{
+          label: 'name',
           children: 'sub'
         }"
-        row-key="id"
-        :border="true"
-        style="width: 100%"
       >
-        <el-table-column fixed="left" prop="name" label="资源名称" align="left" width="210" />
+        <template #default="{ data }">
+          <div class="d-flex justify-space-between" style="width: 100%">
+            <div class="mr-36 flex-10">
+              <ResourceNode :data="data" />
+            </div>
 
-        <el-table-column prop="type" label="资源类型" width="90" align="center">
-          <template #default="{ row }">{{ filterResourceTypeLabel(row.type) }}</template>
-        </el-table-column>
-
-        <el-table-column prop="icon" label="资源图标" align="center" width="90">
-          <template #default="{ row }">
-            <svg-icon :name="row.icon" />
-            <!-- {{ row.icon }} -->
-          </template>
-        </el-table-column>
-        <el-table-column prop="id" label="id" align="center" width="60" />
-        <el-table-column prop="order" label="排序" align="center" width="60" />
-        <el-table-column prop="node_name" label="权限标识" align="center" width="100" />
-        <el-table-column prop="route_name" label="路由名称" align="center" width="100" />
-        <el-table-column prop="route_path" label="路由地址" align="center" />
-        <el-table-column prop="route_component" label="路由组件名" align="center" width="100" />
-        <el-table-column prop="route_hidden" label="hidden" align="center" width="80">
-          <template #default="{ row }">
-            {{ filterBoolToText(row.route_hidden) }}
-          </template>
-        </el-table-column>
-        <el-table-column prop="route_no_cache" label="noCache" align="center" width="100">
-          <template #default="{ row }">
-            {{ filterBoolToText(row.route_no_cache) }}
-          </template>
-        </el-table-column>
-        <el-table-column prop="route_breadcrumb" label="breadcrumb" align="center" width="110">
-          <template #default="{ row }">
-            {{ filterBoolToText(row.route_breadcrumb) }}
-          </template>
-        </el-table-column>
-        <el-table-column prop="route_always_show" label="alwaysShow" align="center" width="110">
-          <template #default="{ row }">
-            {{ filterBoolToText(row.route_always_show) }}
-          </template>
-        </el-table-column>
-
-        <el-table-column label="操作" width="130" align="center">
-          <template #default="{ row }">
-            <el-button type="primary" size="small" @click="handleEdit(row)">
-              <el-icon><Edit /></el-icon>
-            </el-button>
-            <el-button type="danger" size="small" @click="handleDel(row)">
-              <el-icon><Delete /></el-icon>
-            </el-button>
-          </template>
-        </el-table-column>
-      </el-table>
+            <div class="">
+              <el-button type="primary" size="small" circle @click.stop="handleEdit(data)">
+                <el-icon><Edit /></el-icon>
+              </el-button>
+              <el-button type="danger" size="small" circle @click.stop="handleDel(data)">
+                <el-icon><Delete /></el-icon>
+              </el-button>
+            </div>
+          </div>
+        </template>
+      </el-tree>
     </el-card>
 
     <ResourceEditor
@@ -99,10 +64,10 @@ import type { IGetAllResourceParams, IRouteResourceInfo } from '@/api/resource/i
 import SysResourceTypeSelect from '@/components/SysResourceTypeSelect/index.vue'
 import { getAllResource, delResource } from '@/api/resource'
 import { paramsVerify } from '@/utils'
-import { filterResourceTypeLabel, filterBoolToText } from '@/filters'
 import ResourceEditor from './ResourceEditor.vue'
 import { ElMessageBox, ElMessage } from 'element-plus'
 import { usePermissionStore } from '@/stores/permission'
+import ResourceNode from './ResourceNode.vue'
 
 defineOptions({
   name: 'SystemResource'

@@ -56,11 +56,8 @@
               highlight-current
               node-key="id"
             >
-              <template #default="{ node, data }">
-                <div class="fs-14">
-                  <span v-if="data.type === 3" class="color--warning pr-4">[页面级]</span>
-                  <span :title="data.id">{{ node.label }}</span>
-                </div>
+              <template #default="{ data }">
+                <ResourceNode :data="data" />
               </template>
             </el-tree>
           </div>
@@ -83,6 +80,7 @@ import { ElTree, ElMessage } from 'element-plus'
 import type { FormInstance } from 'element-plus'
 import { addRole, updateRole, getRoleById } from '@/api/role'
 import DataAuthTable from './DataAuthTable.vue'
+import ResourceNode from '@/views/system/resource/ResourceNode.vue'
 
 const defaultForm = (): Omit<IRoleInfo, 'id'> => ({
   name: '',
