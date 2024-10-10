@@ -23,10 +23,11 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { filterResourceTypeLabel } from '@/filters'
+import type { IRouteResourceInfo } from '@/api/resource/index.interface'
 
-const props = defineProps({
-  data: Object
-})
+const props = defineProps<{
+  data: IRouteResourceInfo
+}>()
 
 const data = computed(() => props.data)
 </script>
