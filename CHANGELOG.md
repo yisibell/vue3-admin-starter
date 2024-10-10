@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v2.1.1
+
+[compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v2.1.0...v2.1.1)
+
+### 🩹 Fixes
+
+- Types ([42d98ac](https://github.com/yisibell/vue3-admin-starter/commit/42d98ac))
+
+### 🏡 Chore
+
+- Update vscode recommendations ([54b5fa2](https://github.com/yisibell/vue3-admin-starter/commit/54b5fa2))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.1.0
 
 [compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v2.0.1...v2.1.0)
