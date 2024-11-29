@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v2.2.0
+
+[compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v2.1.1...v2.2.0)
+
+### 🚀 Enhancements
+
+- Upgrade resource management ([6e029d5](https://github.com/yisibell/vue3-admin-starter/commit/6e029d5))
+
+### ❤️ Contributors
+
+- Wenqing <wenqing@kerrylan.com>
+
 ## v2.1.1
 
 [compare changes](https://github.com/yisibell/vue3-admin-starter/compare/v2.1.0...v2.1.1)
