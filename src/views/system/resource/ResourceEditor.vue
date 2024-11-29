@@ -3,7 +3,7 @@
     v-model="dialogVisible"
     :title="title"
     :append-to-body="true"
-    width="800px"
+    width="50%"
     @open="handleWhenOpen"
   >
     <el-scrollbar max-height="62vh">
@@ -12,7 +12,7 @@
           <SysResourceTypeSelect v-model="form.type" style="width: 50%" />
         </el-form-item>
 
-        <el-form-item label="父节点" prop="parent_id">
+        <el-form-item label="父级节点" prop="parent_id">
           <el-cascader
             v-model="form.parent_id"
             :options="allResourcesOptions"
@@ -43,7 +43,7 @@
             <SysIconsSelect v-model="form.icon" style="width: 50%" />
           </el-form-item>
 
-          <el-form-item label="路由组件名" prop="route_component">
+          <el-form-item label="路由组件" prop="route_component">
             <el-input
               v-model="form.route_component"
               placeholder="映射路由组件名"
@@ -62,16 +62,22 @@
             <el-input v-model="form.route_path" placeholder="二级目录不要填" style="width: 50%" />
             <div class="fs-12">
               TIPS:
-              为了使三级菜单导航的视图组件缓存功能有效，当菜单深度达到3级时，2级目录的路由地址请保持为空，<br />
-              这样最终生成的路由地址就会为2级：/a/b。 <br />
+              为了使三级菜单导航的视图组件缓存功能有效，当菜单深度达到3级时，2级目录的路由地址请保持为空。<br />
+              这样最终生成的路由地址就会为2级：/some/path。 <br />
               而侧边菜单深度依然会保持3级。并且三级视图组件会成功被 keep-alive 处理。<br />
             </div>
           </el-form-item>
-          <el-form-item label="排序" prop="order">
-            <el-input-number v-model="form.order" />
-          </el-form-item>
 
-          <el-form-item label="hidden" prop="route_hidden">
+          <el-form-item label="" prop="route_hidden">
+            <template #label>
+              <el-tooltip
+                placement="top"
+                content="(hidden) 是否隐藏该菜单或目录，即，不在侧边菜单里显示，但路由地址依旧会生成。"
+              >
+                <span>是否隐藏</span>
+              </el-tooltip>
+            </template>
+
             <el-select v-model="form.route_hidden" style="width: 50%">
               <el-option
                 v-for="v in bool_options"
@@ -81,7 +87,16 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="alwaysShow" prop="route_always_show">
+
+          <el-form-item label="" prop="route_always_show">
+            <template #label>
+              <el-tooltip
+                placement="top"
+                content="(alwaysShow) 当子级菜单只有一个时，父目录是否依然显示。"
+              >
+                <span>总是显示</span>
+              </el-tooltip>
+            </template>
             <el-select v-model="form.route_always_show" style="width: 50%">
               <el-option
                 v-for="v in bool_options"
@@ -91,7 +106,13 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="noCache" prop="route_no_cache">
+
+          <el-form-item label="" prop="route_no_cache">
+            <template #label>
+              <el-tooltip placement="top" content="(noCache) 是否禁用视图组件缓存。">
+                <span>禁用缓存</span>
+              </el-tooltip>
+            </template>
             <el-select v-model="form.route_no_cache" style="width: 50%">
               <el-option
                 v-for="v in bool_options"
@@ -101,7 +122,13 @@
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="breadcrumb" prop="route_breadcrumb">
+
+          <el-form-item label="" prop="route_breadcrumb">
+            <template #label>
+              <el-tooltip placement="top" content="(breadcrumb) 是否出现在面包屑导航中。">
+                <span>导航路径</span>
+              </el-tooltip>
+            </template>
             <el-select v-model="form.route_breadcrumb" style="width: 50%">
               <el-option
                 v-for="v in bool_options"
@@ -183,7 +210,7 @@ const rules = computed(() => {
   return {
     type: [{ required: true, message: '请选择资源类型' }],
     name: [{ required: true, message: '请输入资源名称' }],
-    route_component: [{ required: form.value.type !== 3, message: '请输入路由组件名' }],
+    route_component: [{ required: form.value.type !== 3, message: '请输入路由组件' }],
     route_name: [{ required: form.value.type !== 3, message: '请输入路由名称' }],
     order: [{ required: form.value.type !== 3, message: '请输入排序值' }],
     node_name: [{ required: form.value.type === 3, message: '请输入权限标识' }]
